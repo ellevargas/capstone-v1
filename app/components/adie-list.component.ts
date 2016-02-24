@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-// import {Adie} from './app/models/adie';
+import {Adie} from '../app/models/adie';
 
 @Component({
 	selector: "adie-list",
@@ -27,19 +27,6 @@ export class AdieListComponent {
 	onSelect(adie: Adie) {
 		this.selectedAdie = adie;
 	}
-}
-
-class Adie {
-	id: number;
-	name: string;
-	cohort: number;
-	twitter: string;
-	linked_in: string;
-	image: string;
-	email: string;
-	current_employer: number;
-	intern_company_id: number;
-	bio: string;
 }
 
 var ADIES: Adie[] = [

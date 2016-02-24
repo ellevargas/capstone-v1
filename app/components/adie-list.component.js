@@ -11,14 +11,13 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var AdieListComponent, Adie, ADIES;
+    var AdieListComponent, ADIES;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            // import {Adie} from './app/models/adie';
             AdieListComponent = (function () {
                 function AdieListComponent() {
                     this.adies = ADIES;
@@ -36,11 +35,6 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 return AdieListComponent;
             }());
             exports_1("AdieListComponent", AdieListComponent);
-            Adie = (function () {
-                function Adie() {
-                }
-                return Adie;
-            }());
             ADIES = [
                 {
                     "id": 1,
