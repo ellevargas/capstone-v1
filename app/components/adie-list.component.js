@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', './adie-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, adie_detail_component_1;
     var AdieListComponent, ADIES;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (adie_detail_component_1_1) {
+                adie_detail_component_1 = adie_detail_component_1_1;
             }],
         execute: function() {
             AdieListComponent = (function () {
@@ -28,7 +31,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 AdieListComponent = __decorate([
                     core_1.Component({
                         selector: "adie-list",
-                        template: "\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\" (click)=\"onSelect(adie)\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n  <div *ngIf=\"selectedAdie\">\n      <h2>{{selectedAdie.name}} details</h2>\n      <div><label>id: </label>{{selectedAdie.id}}</div>\n      <div>\n          <label>name: </label>\n          <input [(ngModel)]=\"selectedAdie.name\" placeholder=\"name\"/>\n      </div>\n  </div>\n  ",
+                        template: "\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\" (click)=\"onSelect(adie)\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n  <div *ngIf=\"selectedAdie\">\n      <adie-detail [selectedAdie]=\"selectedAdie\"></adie-detail>\n  </div>\n  ",
+                        directives: [adie_detail_component_1.AdieDetailComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AdieListComponent);

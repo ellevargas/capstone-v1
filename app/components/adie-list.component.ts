@@ -1,4 +1,5 @@
 import {Component} from 'angular2/core';
+import {AdieDetailComponent} from './adie-detail.component';
 import {Adie} from '../app/models/adie';
 
 @Component({
@@ -10,14 +11,10 @@ import {Adie} from '../app/models/adie';
 		</li>
 	</ul>
   <div *ngIf="selectedAdie">
-      <h2>{{selectedAdie.name}} details</h2>
-      <div><label>id: </label>{{selectedAdie.id}}</div>
-      <div>
-          <label>name: </label>
-          <input [(ngModel)]="selectedAdie.name" placeholder="name"/>
-      </div>
+      <adie-detail [selectedAdie]="selectedAdie"></adie-detail>
   </div>
   `,
+  directives: [AdieDetailComponent]
 })
 
 export class AdieListComponent {
