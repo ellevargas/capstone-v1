@@ -20,11 +20,12 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.title = "Capstone Practice App";
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>Hello, World!</h1>'
+                        template: '<h1>{{title}}</h1>'
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
