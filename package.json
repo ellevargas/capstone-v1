@@ -4,7 +4,7 @@
   "description": "Practice making an Angular 2 app",
   "main": "index.js",
   "scripts": {
-  	"start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",    
+  	"start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",    
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "lite-server",
