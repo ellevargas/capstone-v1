@@ -21,11 +21,23 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             AppComponent = (function () {
                 function AppComponent() {
                     this.title = "Capstone Practice App";
+                    this.sampleStudent = {
+                        "id": 19,
+                        "name": "Linnea Damer",
+                        "cohort": 2,
+                        "twitter": "",
+                        "linked_in": "https://www.linkedin.com/in/linnea-damer-5897322b",
+                        "image": "images/Linnea.jpg",
+                        "email": "lkdamer@gmail.com",
+                        "current_employer": null,
+                        "intern_company_id": 7,
+                        "bio": "Linnea Damer was a student in Ada Developers Academy cohort 2. She is now has a job doing some sort of programming and is doing amazing things."
+                    };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>{{title}}</h1>'
+                        template: "\n\t<h1>{{title}}</h1>\n\t<h2>{{ sampleStudent.name }}</h2>\n\t<p>Cohort: {{sampleStudent.cohort}}</p>\n\t<img [src]=\"sampleStudent.image\">\n\t<input [(ngModel)]=\"sampleStudent.name\" placeholder=\"name\">\n\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
