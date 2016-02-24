@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Adie} from '../app/models/adie';
+import {Adie} from '../models/adie';
 
 @Component ({
 	selector: 'adie-detail',
