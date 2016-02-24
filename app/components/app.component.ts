@@ -7,15 +7,28 @@ import {Adie} from './models/adie';
 	template: `
 	<h1>{{title}}</h1>
 	<ul>
-		<li *ngFor="#adie of adies">
+		<li *ngFor="#adie of adies" (click)="onSelect(adie)">
 			Name: {{ adie.name }} | Cohort: {{ adie.cohort }}
 		</li>
 	</ul>
+    <div *ngIf="selectedAdie">
+        <h2>{{selectedAdie.name}} details</h2>
+        <div><label>id: </label>{{selectedAdie.id}}</div>
+        <div>
+            <label>name: </label>
+            <input [(ngModel)]="selectedAdie.name" placeholder="name"/>
+        </div>
+    </div>
 	`
 })
 export class AppComponent {
 	public title = "Capstone Practice App";
 	public adies = ADIES;
+    public selectedAdie: Adie;
+
+    onSelect(adie: Adie) {
+        this.selectedAdie = adie;
+    }
 }
 
 var ADIES: Adie[] = [

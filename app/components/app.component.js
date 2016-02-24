@@ -23,10 +23,13 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                     this.title = "Capstone Practice App";
                     this.adies = ADIES;
                 }
+                AppComponent.prototype.onSelect = function (adie) {
+                    this.selectedAdie = adie;
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t<h1>{{title}}</h1>\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n\t"
+                        template: "\n\t<h1>{{title}}</h1>\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\" (click)=\"onSelect(adie)\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n    <div *ngIf=\"selectedAdie\">\n        <h2>{{selectedAdie.name}} details</h2>\n        <div><label>id: </label>{{selectedAdie.id}}</div>\n        <div>\n            <label>name: </label>\n            <input [(ngModel)]=\"selectedAdie.name\" placeholder=\"name\"/>\n        </div>\n    </div>\n\t"
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
