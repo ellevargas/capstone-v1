@@ -1,6 +1,7 @@
 export class Adie {
 	id: number;
 	name: string;
+	github_username: string;
 	cohort: number;
 	twitter: string;
 	linked_in: string;
