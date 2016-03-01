@@ -1,2 +1,12 @@
 node_modules/
 typings/
+app/**/*.js
+app/**/*.map
+
+
+app/mocks/*.js
+app/mocks/*.map
+app/mocks/*.js.map
+
+app/components/*.js
+app/components/*.js.map
