@@ -1,6 +1,6 @@
 import { Company } from '../models/company';
 
-export var COMPANY: Company[] = [
+export var COMPANIES: Company[] = [
   {
     "id": 1,
     "name": "Expedia",

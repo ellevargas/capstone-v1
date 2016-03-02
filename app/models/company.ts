@@ -4,7 +4,7 @@ export class Company {
 	street: string;
 	city: string;
 	state: string;
-	zip: string;
+	zip: number;
 	website: string;
 	logo: string;
 }
