@@ -1,4 +1,12 @@
+// Angular imports
 import { Component, OnInit } from 'angular2/core';
+import { HTTP_PROVIDERS }    from 'angular2/http';
+
+// Rxjs imports
+import { Observable } from 'rxjs/Observable';
+
+
+// Project imports
 import { AdieDetailComponent } from './adie-detail.component';
 import { Adie } from '../models/adie';
 import { AdieService } from '../services/adie.service';
@@ -14,20 +22,29 @@ import { AdieService } from '../services/adie.service';
   <div *ngIf="selectedAdie">
       <adie-detail [selectedAdie]="selectedAdie"></adie-detail>
   </div>
+  <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   `,
-  directives: [AdieDetailComponent]
+  directives: [AdieDetailComponent],
+  providers: [HTTP_PROVIDERS, AdieService]
 })
 
 export class AdieListComponent implements OnInit {
+	errorMessage: string;	
 	public adies: Adie[];
 	public selectedAdie: Adie;
 
-	constructor(private adieService: AdieService) {
+	constructor(private _adieService: AdieService) {
 	}
 
 	ngOnInit() {
-		this.adieService.getAdies()
-			.then(adies => this.adies = adies);
+		this.getAdies();
+	}
+
+	getAdies() {
+		this._adieService.getAdies()
+			.subscribe(
+			adies => this.adies = adies,
+		  error => this.errorMessage = <any>error);
 	}
 
 	onSelect(adie: Adie) {
