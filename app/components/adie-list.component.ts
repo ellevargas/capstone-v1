@@ -1,4 +1,4 @@
-import { Component } from 'angular2/core';
+import { Component, OnInit } from 'angular2/core';
 import { AdieDetailComponent } from './adie-detail.component';
 import { Adie } from '../models/adie';
 import { AdieService } from '../services/adie.service';
@@ -18,12 +18,16 @@ import { AdieService } from '../services/adie.service';
   directives: [AdieDetailComponent]
 })
 
-export class AdieListComponent {
+export class AdieListComponent implements OnInit {
 	public adies: Adie[];
 	public selectedAdie: Adie;
 
-	constructor(adieService: AdieService) {
-		this.adies = adieService.getAdies();
+	constructor(private adieService: AdieService) {
+	}
+
+	ngOnInit() {
+		this.adieService.getAdies()
+			.then(adies => this.adies = adies);
 	}
 
 	onSelect(adie: Adie) {

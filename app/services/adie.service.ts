@@ -5,5 +5,5 @@ import {ADIES} from '../mocks/mock-adies';
 @Injectable()
 
 export class AdieService {
-	getAdies() { return ADIES; }
+	getAdies() { return Promise.resolve(ADIES); }
 }
