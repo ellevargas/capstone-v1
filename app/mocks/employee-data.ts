@@ -63,4 +63,5 @@ export class EmployeeData {
 			},
 		];
 		return { employees };
+	}
 }

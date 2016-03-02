@@ -9,11 +9,11 @@ import { Employee } from '../models/employee';
 @Injectable()
 
 export class EmployeeService {
-	constructor(private http:Http){}
+	constructor(private http: Http) {}
 
 	private _employeesUrl = 'app/employees';
 
-	private getEmployees() {
+	getEmployees() {
 		return this.http.get(this._employeesUrl)
 			.map(res => <Employee[]> res.json().data)
 			.do(data => console.log(data))

@@ -1,10 +1,8 @@
 // Angular imports
 import { Injectable } from 'angular2/core';
 import { Http, Response } from 'angular2/http';
-
 // Rxjs imports
 import { Observable } from 'rxjs/Observable';
-
 // Project imports
 import { Company } from '../models/company';
 

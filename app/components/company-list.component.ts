@@ -22,7 +22,8 @@ import { CompanyData } from '../mocks/company-data';
 	</ul>
 	<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   `,
-  providers: [HTTP_PROVIDERS, CompanyService,
+  providers: [
+  	HTTP_PROVIDERS, CompanyService,
 		// in-memory web api providers
 		provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
 		provide(SEED_DATA, { useClass: CompanyData }) // in-mem server data
