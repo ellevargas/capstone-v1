@@ -4,8 +4,6 @@ import { Http, Response } from 'angular2/http';
 
 // Rxjs imports
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 
 // Project imports
 import { Adie } from '../models/adie';
@@ -21,7 +19,7 @@ export class AdieService {
 	getAdies() {
 		return this.http.get(this._adiesUrl)
 			.map(res => <Adie[]> res.json().data)
-			.do(data => console.log(data)) // eyeball results in the console
+			// .do(data => console.log(data)) // eyeball results in the console
 			.catch(this.handleError);
   }
   private handleError(error: Response) {
