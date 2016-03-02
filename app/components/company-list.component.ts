@@ -20,6 +20,7 @@ import { CompanyData } from '../mocks/company-data';
 			Name: {{ company.name }} | Website: {{ company.website }}
 		</li>
 	</ul>
+	<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   `,
   providers: [HTTP_PROVIDERS, CompanyService,
 		// in-memory web api providers
