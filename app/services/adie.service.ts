@@ -10,14 +10,13 @@ import 'rxjs/add/operator/catch';
 // Project imports
 import { Adie } from '../models/adie';
 
-
 @Injectable()
 
 export class AdieService {
 	constructor (private http: Http) {}
 
-	// private _adiesUrl = 'app/adies';  // URL to web api
-	private _adiesUrl = 'app/adies.json'; // URL to JSON file
+	private _adiesUrl = 'app/adies';  // URL to web api
+	// private _adiesUrl = 'app/adies.json'; // URL to JSON file
 
 	getAdies() {
 		return this.http.get(this._adiesUrl)

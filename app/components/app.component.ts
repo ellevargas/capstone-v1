@@ -24,7 +24,6 @@ import { EmployeeListComponent } from './employee-list.component';
 	<router-outlet></router-outlet>
 	`,
 	providers: [AdieService, CompanyService, EmployeeService],
-  // directives: [AdieListComponent, CompanyListComponent, EmployeeListComponent]
   directives: [ROUTER_DIRECTIVES],
 })
 
