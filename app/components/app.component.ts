@@ -1,4 +1,5 @@
 import { Component } from 'angular2/core';
+import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
 // Import services
 import { AdieService } from '../services/adie.service';
@@ -7,6 +8,7 @@ import { EmployeeService } from '../services/employee.service';
 
 // Import components
 import { AdieListComponent } from './adie-list.component';
+// import { AdieDetailComponent } from './adie-detail.component';
 import { CompanyListComponent } from './company-list.component';
 import { EmployeeListComponent } from './employee-list.component';
 
@@ -14,13 +16,24 @@ import { EmployeeListComponent } from './employee-list.component';
 	selector: 'my-app',
 	template: `
 	<h1>{{title}}</h1>
-	<adie-list></adie-list>
-	<company-list></company-list>
-	<employee-list></employee-list>
+	<nav>
+    <a [routerLink]="['Adies']">Adies</a>
+    <a [routerLink]="['Companies']">Companies</a>
+    <a [routerLink]="['Employees']">Employees</a>
+  </nav>
+	<router-outlet></router-outlet>
 	`,
 	providers: [AdieService, CompanyService, EmployeeService],
-  directives: [AdieListComponent, CompanyListComponent, EmployeeListComponent]
+  // directives: [AdieListComponent, CompanyListComponent, EmployeeListComponent]
+  directives: [ROUTER_DIRECTIVES],
 })
+
+@RouteConfig([
+	{ path: '/adies', name: 'Adies', component: AdieListComponent },
+	{ path: '/companies', name: 'Companies', component: CompanyListComponent },
+	{ path: '/employees', name: 'Employees', component: EmployeeListComponent }
+	// { path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent }
+])
 
 export class AppComponent {
 	public title = "Capstone Practice App";
