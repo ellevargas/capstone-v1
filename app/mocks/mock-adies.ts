@@ -37,7 +37,7 @@ export var ADIES: Adie[] = [
         "image": "",
         "email": "shadaeholmes@gmail.com",
         "current_employer": null,
-        "intern_company_id": 11,
+        "intern_company_id": 1,
         "bio": "Shadae Holmes was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
     },
     {
@@ -50,7 +50,7 @@ export var ADIES: Adie[] = [
         "image": "",
         "email": "hhhsu1@gmail.com",
         "current_employer": null,
-        "intern_company_id": 7,
+        "intern_company_id": 5,
         "bio": "Hsing-Hui Hsu was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
     },
     {
