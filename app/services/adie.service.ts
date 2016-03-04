@@ -13,13 +13,12 @@ import { Adie } from '../models/adie';
 export class AdieService {
 	constructor (private http: Http) {}
 
-	private _adiesUrl = 'app/adies';  // URL to web api
-	// private _adiesUrl = 'app/adies.json'; // URL to JSON file
+	private _adiesUrl = 'https://ada-capstone-api.herokuapp.com/adies/';  // URL to web api
 
 	getAdies() {
 		return this.http.get(this._adiesUrl)
 			.map(res => <Adie[]> res.json().data)
-			// .do(data => console.log(data)) // eyeball results in the console
+			// .do(data => console.log(data))
 			.catch(this.handleError);
   }
   private handleError(error: Response) {

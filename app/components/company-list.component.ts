@@ -6,11 +6,6 @@ import { Observable } from 'rxjs/Observable';
 // Project imports
 import { Company } from '../models/company';
 import { CompanyService } from '../services/company.service';
-// In-memory web api imports
-import { provide } from 'angular2/core';
-import { XHRBackend } from 'angular2/http';
-import { InMemoryBackendService, SEED_DATA } from 'a2-in-memory-web-api/core';
-import { CompanyData } from '../mocks/company-data';
 
 @Component({
 	selector: "company-list",
@@ -22,12 +17,7 @@ import { CompanyData } from '../mocks/company-data';
 	</ul>
 	<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   `,
-  providers: [
-  	HTTP_PROVIDERS, CompanyService,
-		// in-memory web api providers
-		provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
-		provide(SEED_DATA, { useClass: CompanyData }) // in-mem server data
-	]
+  providers: [ HTTP_PROVIDERS, CompanyService ]
 })
 
 export class CompanyListComponent implements OnInit {

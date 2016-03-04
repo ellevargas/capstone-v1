@@ -11,12 +11,12 @@ import { Company } from '../models/company';
 export class CompanyService {
 	constructor(private http: Http) {}
 
-	private _companiesUrl = 'app/companies';
+	private _companiesUrl = 'https://ada-capstone-api.herokuapp.com/companies/';
 
 	getCompanies() { 
 		return this.http.get(this._companiesUrl)
 			.map(res => <Company[]> res.json().data)
-			.do(data => console.log(data))
+			// .do(data => console.log(data))
 			.catch(err => this.handleError(err));
 	}
 

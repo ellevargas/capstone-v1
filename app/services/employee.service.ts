@@ -11,7 +11,7 @@ import { Employee } from '../models/employee';
 export class EmployeeService {
 	constructor(private http: Http) {}
 
-	private _employeesUrl = 'app/employees';
+	private _employeesUrl = 'https://ada-capstone-api.herokuapp.com/employees/';
 
 	getEmployees() {
 		return this.http.get(this._employeesUrl)

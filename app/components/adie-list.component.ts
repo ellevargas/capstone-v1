@@ -10,12 +10,6 @@ import { AdieDetailComponent } from './adie-detail.component';
 import { Adie } from '../models/adie';
 import { AdieService } from '../services/adie.service';
 
-// In-memory web api imports
-import { provide } from 'angular2/core';
-import { XHRBackend } from 'angular2/http';
-import { InMemoryBackendService, SEED_DATA } from 'a2-in-memory-web-api/core';
-import { AdieData } from '../mocks/adie-data';
-
 @Component({
 	selector: "adie-list",
 	template: `
@@ -30,13 +24,7 @@ import { AdieData } from '../mocks/adie-data';
   <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   `,
   directives: [AdieDetailComponent],
-  providers: [HTTP_PROVIDERS, AdieService,
-  	// in-memory web api providers
-		provide(XHRBackend, { useClass: InMemoryBackendService }), // in-mem server
-		provide(SEED_DATA, { useClass: AdieData }) // in-mem server data
-	],
-  
-	
+  providers: [HTTP_PROVIDERS, AdieService]	
 })
 
 export class AdieListComponent implements OnInit {
