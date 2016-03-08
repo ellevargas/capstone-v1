@@ -11,11 +11,13 @@ import { AdieListComponent } from './adie-list.component';
 // import { AdieDetailComponent } from './adie-detail.component';
 import { CompanyListComponent } from './company-list.component';
 import { EmployeeListComponent } from './employee-list.component';
+import { LoginComponent } from './login.component';
 
 @Component({
 	selector: 'my-app',
 	template: `
 	<h1>{{title}}</h1>
+	<login></login>
 	<nav>
     <a [routerLink]="['Adies']">Adies</a>
     <a [routerLink]="['Companies']">Companies</a>
@@ -24,7 +26,7 @@ import { EmployeeListComponent } from './employee-list.component';
 	<router-outlet></router-outlet>
 	`,
 	providers: [AdieService, CompanyService, EmployeeService],
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, LoginComponent],
 })
 
 @RouteConfig([
