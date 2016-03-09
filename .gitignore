@@ -12,3 +12,8 @@ app/mocks/*.js.map
 
 app/components/*.js
 app/components/*.js.map
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
