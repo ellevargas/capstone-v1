@@ -1,7 +1,7 @@
 import {Injectable} from "angular2/core";
 import {HTTP_PROVIDERS, Http} from 'angular2/http';
 // import {AuthHttp, AuthConfig, tokenNotExpired, JwtHelper} from 'angular2-jwt';
-import {tokenNotExpired, JwtHelper} from 'angular2-jwt/angular2-jwt';
+import {tokenNotExpired, JwtHelper} from 'angular2-jwt';
 
 declare var Auth0Lock;
 
