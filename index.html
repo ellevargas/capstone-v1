@@ -6,15 +6,15 @@
 
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="libs/es6-shim/es6-shim.min.js"></script>
+    <script src="libs/systemjs/dist/system-polyfills.js"></script>
 
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script>
-    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="libs/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="libs/systemjs/dist/system.src.js"></script>
+    <script src="libs/rxjs/bundles/Rx.js"></script>
+    <script src="libs/angular2/bundles/angular2.dev.js"></script>
+    <script src="libs/angular2/bundles/router.dev.js"></script>
+    <script src="libs/angular2/bundles/http.dev.js"></script>
 
     <!-- Auth0 Lock script -->
     <script src="//cdn.auth0.com/js/lock-8.2.min.js"></script>
@@ -32,7 +32,7 @@
           }
         },
         map: {
-          "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
+          "angular2-jwt": "libs/angular2-jwt/angular2-jwt.js"
         }
       });
       System.import('app/main')
