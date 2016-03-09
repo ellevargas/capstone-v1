@@ -3,6 +3,8 @@ typings/
 app/**/*.js
 app/**/*.map
 
+.DS_Store
+
 
 app/mocks/*.js
 app/mocks/*.map
