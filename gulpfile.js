@@ -29,11 +29,17 @@ gulp.task('build:server', function () {
   jsNPMDependencies, sometimes order matters here! so be careful!
 */
 var jsNPMDependencies = [
+    'systemjs/dist/system-polyfills.js',
     'angular2/bundles/angular2-polyfills.js',
     'systemjs/dist/system.src.js',
     'rxjs/bundles/Rx.js',
     'angular2/bundles/angular2.dev.js',
-    'angular2/bundles/router.dev.js'
+    'angular2/bundles/router.dev.js',
+    'angular2/bundles/http.dev.js',
+    'angular2-jwt/angular2-jwt.js',
+    'angular2/typings/browser.d.ts',
+    'angular2/typings/es6-collections/es6-collections.d.ts',
+    'angular2/typings/es6-promise/es6-promise.d.ts'
 ] ;
 
 gulp.task('build:index', function(){
