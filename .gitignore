@@ -17,3 +17,5 @@ app/components/*.js.map
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+elb-acm.json
