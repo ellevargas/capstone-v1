@@ -10,7 +10,8 @@
     "lite": "lite-server",
     "typings": "typings",
     "postinstall": "typings install",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "open": "concurrently \"gulp build\" \"node dist/server\" "
   },
   "author": "Jennie Buechner",
   "license": "MIT",
