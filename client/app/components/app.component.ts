@@ -8,7 +8,7 @@ import { EmployeeService } from '../services/employee.service';
 
 // Import components
 import { AdieListComponent } from './adie-list.component';
-// import { AdieDetailComponent } from './adie-detail.component';
+import { AdieDetailComponent } from './adie-detail.component';
 import { CompanyListComponent } from './company-list.component';
 import { EmployeeListComponent } from './employee-list.component';
 import { LoginComponent } from './login.component';
@@ -33,7 +33,7 @@ import { LoginComponent } from './login.component';
 	{ path: '/adies', name: 'Adies', component: AdieListComponent },
 	{ path: '/companies', name: 'Companies', component: CompanyListComponent },
 	{ path: '/employees', name: 'Employees', component: EmployeeListComponent }
-	// { path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent }
+	{ path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent }
 ])
 
 export class AppComponent {

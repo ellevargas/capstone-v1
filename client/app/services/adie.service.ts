@@ -28,6 +28,22 @@ export class AdieService {
 			.do(data => console.log(data))
 			.catch(this.handleError);
   }
+
+  getAdie(id: number) {
+		var header: Headers = new Headers();
+		var adieUrl: string = `${this._adiesUrl}${id}`
+		if (this.authService.loggedIn()) {
+      var bearerString: string = "Bearer " + localStorage.getItem('id_token');
+      header.append('Authorization', bearerString);
+		}
+		return this.http.get(adieUrl, { headers: header })
+			.map(res => <Adie>res.json().data)
+			.do(data => console.log(data))
+			.catch(this.handleError);	
+  }
+
+
+
   private handleError(error: Response) {
     console.error(error);
     return Observable.throw(error.json().error || 'Server error');

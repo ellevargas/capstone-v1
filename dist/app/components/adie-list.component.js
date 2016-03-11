@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', './adie-detail.component', '../services/adie.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'angular2/router', '../services/adie.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', './adie-detail.component', '.
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, adie_detail_component_1, adie_service_1;
+    var core_1, http_1, router_1, adie_service_1;
     var AdieListComponent;
     return {
         setters:[
@@ -20,16 +20,17 @@ System.register(['angular2/core', 'angular2/http', './adie-detail.component', '.
             function (http_1_1) {
                 http_1 = http_1_1;
             },
-            function (adie_detail_component_1_1) {
-                adie_detail_component_1 = adie_detail_component_1_1;
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (adie_service_1_1) {
                 adie_service_1 = adie_service_1_1;
             }],
         execute: function() {
             AdieListComponent = (function () {
-                function AdieListComponent(_adieService) {
+                function AdieListComponent(_adieService, _router) {
                     this._adieService = _adieService;
+                    this._router = _router;
                 }
                 AdieListComponent.prototype.ngOnInit = function () {
                     this.getAdies();
@@ -39,17 +40,16 @@ System.register(['angular2/core', 'angular2/http', './adie-detail.component', '.
                     this._adieService.getAdies()
                         .subscribe(function (adies) { return _this.adies = adies; }, function (error) { return _this.errorMessage = error; });
                 };
-                AdieListComponent.prototype.onSelect = function (adie) {
-                    this.selectedAdie = adie;
+                AdieListComponent.prototype.gotoDetail = function (adie) {
+                    this._router.navigate(['AdieDetail', { id: adie.id }]);
                 };
                 AdieListComponent = __decorate([
                     core_1.Component({
                         selector: "adie-list",
-                        template: "\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\" (click)=\"onSelect(adie)\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n  <div *ngIf=\"selectedAdie\">\n      <adie-detail [selectedAdie]=\"selectedAdie\"></adie-detail>\n  </div>\n  <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n  ",
-                        directives: [adie_detail_component_1.AdieDetailComponent],
+                        template: "\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\" (click)=\"gotoDetail(adie)\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n  <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n  ",
                         providers: [http_1.HTTP_PROVIDERS, adie_service_1.AdieService]
                     }), 
-                    __metadata('design:paramtypes', [adie_service_1.AdieService])
+                    __metadata('design:paramtypes', [adie_service_1.AdieService, router_1.Router])
                 ], AdieListComponent);
                 return AdieListComponent;
             }());
@@ -58,4 +58,4 @@ System.register(['angular2/core', 'angular2/http', './adie-detail.component', '.
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9jb21wb25lbnRzL2FkaWUtbGlzdC5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7WUE2QkE7Z0JBS0MsMkJBQW9CLFlBQXlCO29CQUF6QixpQkFBWSxHQUFaLFlBQVksQ0FBYTtnQkFDN0MsQ0FBQztnQkFFRCxvQ0FBUSxHQUFSO29CQUNDLElBQUksQ0FBQyxRQUFRLEVBQUUsQ0FBQztnQkFDakIsQ0FBQztnQkFFRCxvQ0FBUSxHQUFSO29CQUFBLGlCQUtDO29CQUpBLElBQUksQ0FBQyxZQUFZLENBQUMsUUFBUSxFQUFFO3lCQUMxQixTQUFTLENBQ1YsVUFBQSxLQUFLLElBQUksT0FBQSxLQUFJLENBQUMsS0FBSyxHQUFHLEtBQUssRUFBbEIsQ0FBa0IsRUFDMUIsVUFBQSxLQUFLLElBQUksT0FBQSxLQUFJLENBQUMsWUFBWSxHQUFRLEtBQUssRUFBOUIsQ0FBOEIsQ0FBQyxDQUFDO2dCQUM1QyxDQUFDO2dCQUVELG9DQUFRLEdBQVIsVUFBUyxJQUFVO29CQUNsQixJQUFJLENBQUMsWUFBWSxHQUFHLElBQUksQ0FBQztnQkFDMUIsQ0FBQztnQkF0Q0Y7b0JBQUMsZ0JBQVMsQ0FBQzt3QkFDVixRQUFRLEVBQUUsV0FBVzt3QkFDckIsUUFBUSxFQUFFLDZVQVVSO3dCQUNELFVBQVUsRUFBRSxDQUFDLDJDQUFtQixDQUFDO3dCQUNqQyxTQUFTLEVBQUUsQ0FBQyxxQkFBYyxFQUFFLDBCQUFXLENBQUM7cUJBQ3pDLENBQUM7O3FDQUFBO2dCQXdCRix3QkFBQztZQUFELENBdEJBLEFBc0JDLElBQUE7WUF0QkQsaURBc0JDLENBQUEiLCJmaWxlIjoiYXBwL2NvbXBvbmVudHMvYWRpZS1saXN0LmNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEFuZ3VsYXIgaW1wb3J0c1xuaW1wb3J0IHsgQ29tcG9uZW50LCBPbkluaXQgfSBmcm9tICdhbmd1bGFyMi9jb3JlJztcbmltcG9ydCB7IEhUVFBfUFJPVklERVJTIH0gICAgZnJvbSAnYW5ndWxhcjIvaHR0cCc7XG5cbi8vIFJ4anMgaW1wb3J0c1xuaW1wb3J0IHsgT2JzZXJ2YWJsZSB9IGZyb20gJ3J4anMvT2JzZXJ2YWJsZSc7XG5cbi8vIFByb2plY3QgaW1wb3J0c1xuaW1wb3J0IHsgQWRpZURldGFpbENvbXBvbmVudCB9IGZyb20gJy4vYWRpZS1kZXRhaWwuY29tcG9uZW50JztcbmltcG9ydCB7IEFkaWUgfSBmcm9tICcuLi9tb2RlbHMvYWRpZSc7XG5pbXBvcnQgeyBBZGllU2VydmljZSB9IGZyb20gJy4uL3NlcnZpY2VzL2FkaWUuc2VydmljZSc7XG5cbkBDb21wb25lbnQoe1xuXHRzZWxlY3RvcjogXCJhZGllLWxpc3RcIixcblx0dGVtcGxhdGU6IGBcblx0PHVsPlxuXHRcdDxsaSAqbmdGb3I9XCIjYWRpZSBvZiBhZGllc1wiIChjbGljayk9XCJvblNlbGVjdChhZGllKVwiPlxuXHRcdFx0TmFtZToge3sgYWRpZS5uYW1lIH19IHwgQ29ob3J0OiB7eyBhZGllLmNvaG9ydCB9fVxuXHRcdDwvbGk+XG5cdDwvdWw+XG4gIDxkaXYgKm5nSWY9XCJzZWxlY3RlZEFkaWVcIj5cbiAgICAgIDxhZGllLWRldGFpbCBbc2VsZWN0ZWRBZGllXT1cInNlbGVjdGVkQWRpZVwiPjwvYWRpZS1kZXRhaWw+XG4gIDwvZGl2PlxuICA8ZGl2IGNsYXNzPVwiZXJyb3JcIiAqbmdJZj1cImVycm9yTWVzc2FnZVwiPnt7ZXJyb3JNZXNzYWdlfX08L2Rpdj5cbiAgYCxcbiAgZGlyZWN0aXZlczogW0FkaWVEZXRhaWxDb21wb25lbnRdLFxuICBwcm92aWRlcnM6IFtIVFRQX1BST1ZJREVSUywgQWRpZVNlcnZpY2VdXHRcbn0pXG5cbmV4cG9ydCBjbGFzcyBBZGllTGlzdENvbXBvbmVudCBpbXBsZW1lbnRzIE9uSW5pdCB7XG5cdGVycm9yTWVzc2FnZTogc3RyaW5nO1x0XG5cdHB1YmxpYyBhZGllczogQWRpZVtdO1xuXHRwdWJsaWMgc2VsZWN0ZWRBZGllOiBBZGllO1xuXG5cdGNvbnN0cnVjdG9yKHByaXZhdGUgX2FkaWVTZXJ2aWNlOiBBZGllU2VydmljZSkge1xuXHR9XG5cblx0bmdPbkluaXQoKSB7XG5cdFx0dGhpcy5nZXRBZGllcygpO1xuXHR9XG5cblx0Z2V0QWRpZXMoKSB7XG5cdFx0dGhpcy5fYWRpZVNlcnZpY2UuZ2V0QWRpZXMoKVxuXHRcdFx0LnN1YnNjcmliZShcblx0XHRcdGFkaWVzID0+IHRoaXMuYWRpZXMgPSBhZGllcyxcblx0XHQgIGVycm9yID0+IHRoaXMuZXJyb3JNZXNzYWdlID0gPGFueT5lcnJvcik7XG5cdH1cblxuXHRvblNlbGVjdChhZGllOiBBZGllKSB7XG5cdFx0dGhpcy5zZWxlY3RlZEFkaWUgPSBhZGllO1xuXHR9XG59XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9jb21wb25lbnRzL2FkaWUtbGlzdC5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7WUF5QkE7Z0JBSUMsMkJBQW9CLFlBQXlCLEVBQVUsT0FBZTtvQkFBbEQsaUJBQVksR0FBWixZQUFZLENBQWE7b0JBQVUsWUFBTyxHQUFQLE9BQU8sQ0FBUTtnQkFDdEUsQ0FBQztnQkFFRCxvQ0FBUSxHQUFSO29CQUNDLElBQUksQ0FBQyxRQUFRLEVBQUUsQ0FBQztnQkFDakIsQ0FBQztnQkFFRCxvQ0FBUSxHQUFSO29CQUFBLGlCQUtDO29CQUpBLElBQUksQ0FBQyxZQUFZLENBQUMsUUFBUSxFQUFFO3lCQUMxQixTQUFTLENBQ1YsVUFBQSxLQUFLLElBQUksT0FBQSxLQUFJLENBQUMsS0FBSyxHQUFHLEtBQUssRUFBbEIsQ0FBa0IsRUFDMUIsVUFBQSxLQUFLLElBQUksT0FBQSxLQUFJLENBQUMsWUFBWSxHQUFRLEtBQUssRUFBOUIsQ0FBOEIsQ0FBQyxDQUFDO2dCQUM1QyxDQUFDO2dCQUVELHNDQUFVLEdBQVYsVUFBVyxJQUFVO29CQUNwQixJQUFJLENBQUMsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFDLFlBQVksRUFBRSxFQUFFLEVBQUUsRUFBRSxJQUFJLENBQUMsRUFBRSxFQUFFLENBQUMsQ0FBQyxDQUFDO2dCQUN4RCxDQUFDO2dCQWpDRjtvQkFBQyxnQkFBUyxDQUFDO3dCQUNWLFFBQVEsRUFBRSxXQUFXO3dCQUNyQixRQUFRLEVBQUUsa09BT1I7d0JBQ0QsU0FBUyxFQUFFLENBQUMscUJBQWMsRUFBRSwwQkFBVyxDQUFDO3FCQUN6QyxDQUFDOztxQ0FBQTtnQkF1QkYsd0JBQUM7WUFBRCxDQXJCQSxBQXFCQyxJQUFBO1lBckJELGlEQXFCQyxDQUFBIiwiZmlsZSI6ImFwcC9jb21wb25lbnRzL2FkaWUtbGlzdC5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBBbmd1bGFyIGltcG9ydHNcbmltcG9ydCB7IENvbXBvbmVudCwgT25Jbml0IH0gZnJvbSAnYW5ndWxhcjIvY29yZSc7XG5pbXBvcnQgeyBIVFRQX1BST1ZJREVSUyB9ICAgIGZyb20gJ2FuZ3VsYXIyL2h0dHAnO1xuaW1wb3J0IHsgUm91dGVyIH0gZnJvbSAnYW5ndWxhcjIvcm91dGVyJztcblxuLy8gUnhqcyBpbXBvcnRzXG5pbXBvcnQgeyBPYnNlcnZhYmxlIH0gZnJvbSAncnhqcy9PYnNlcnZhYmxlJztcblxuLy8gUHJvamVjdCBpbXBvcnRzXG5pbXBvcnQgeyBBZGllIH0gZnJvbSAnLi4vbW9kZWxzL2FkaWUnO1xuaW1wb3J0IHsgQWRpZVNlcnZpY2UgfSBmcm9tICcuLi9zZXJ2aWNlcy9hZGllLnNlcnZpY2UnO1xuXG5AQ29tcG9uZW50KHtcblx0c2VsZWN0b3I6IFwiYWRpZS1saXN0XCIsXG5cdHRlbXBsYXRlOiBgXG5cdDx1bD5cblx0XHQ8bGkgKm5nRm9yPVwiI2FkaWUgb2YgYWRpZXNcIiAoY2xpY2spPVwiZ290b0RldGFpbChhZGllKVwiPlxuXHRcdFx0TmFtZToge3sgYWRpZS5uYW1lIH19IHwgQ29ob3J0OiB7eyBhZGllLmNvaG9ydCB9fVxuXHRcdDwvbGk+XG5cdDwvdWw+XG4gIDxkaXYgY2xhc3M9XCJlcnJvclwiICpuZ0lmPVwiZXJyb3JNZXNzYWdlXCI+e3tlcnJvck1lc3NhZ2V9fTwvZGl2PlxuICBgLFxuICBwcm92aWRlcnM6IFtIVFRQX1BST1ZJREVSUywgQWRpZVNlcnZpY2VdXHRcbn0pXG5cbmV4cG9ydCBjbGFzcyBBZGllTGlzdENvbXBvbmVudCBpbXBsZW1lbnRzIE9uSW5pdCB7XG5cdGVycm9yTWVzc2FnZTogc3RyaW5nO1x0XG5cdHB1YmxpYyBhZGllczogQWRpZVtdO1xuXG5cdGNvbnN0cnVjdG9yKHByaXZhdGUgX2FkaWVTZXJ2aWNlOiBBZGllU2VydmljZSwgcHJpdmF0ZSBfcm91dGVyOiBSb3V0ZXIpIHtcblx0fVxuXG5cdG5nT25Jbml0KCkge1xuXHRcdHRoaXMuZ2V0QWRpZXMoKTtcblx0fVxuXG5cdGdldEFkaWVzKCkge1xuXHRcdHRoaXMuX2FkaWVTZXJ2aWNlLmdldEFkaWVzKClcblx0XHRcdC5zdWJzY3JpYmUoXG5cdFx0XHRhZGllcyA9PiB0aGlzLmFkaWVzID0gYWRpZXMsXG5cdFx0ICBlcnJvciA9PiB0aGlzLmVycm9yTWVzc2FnZSA9IDxhbnk+ZXJyb3IpO1xuXHR9XG5cblx0Z290b0RldGFpbChhZGllOiBBZGllKSB7XG5cdFx0dGhpcy5fcm91dGVyLm5hdmlnYXRlKFsnQWRpZURldGFpbCcsIHsgaWQ6IGFkaWUuaWQgfV0pO1xuXHR9XG59XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
