@@ -13,6 +13,7 @@ export class Auth0Service {
   // constructor(public http: Http, public authHttp: AuthHttp) { }
 
   login() {
+    // debugger;
     this.lock.show(
       {
         authParams: {
