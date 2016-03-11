@@ -8,6 +8,7 @@ declare var Auth0Lock;
 export class Auth0Service {
   lock = new Auth0Lock('srPypYZh5tSUgC270wDX8jFixMukw5TF', 'adacapstone.auth0.com');
   private _adiesUrl = 'https://ada-capstone-api.herokuapp.com/authenticate';  // URL to web api
+  jwtHelper: JwtHelper = new JwtHelper();
 
   constructor(public http: Http) { }
 
@@ -45,6 +46,14 @@ export class Auth0Service {
 
   loggedIn() {
     return tokenNotExpired();
+  }
+
+  getAdieId() {
+    if (localStorage.getItem('id_token')) {
+      var token = localStorage.getItem('id_token');
+      return this.jwtHelper.decodeToken(token).user_id;  
+    }
+    return null;
   }
 
 }
