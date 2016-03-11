@@ -10,6 +10,7 @@ import { EmployeeService } from '../services/employee.service';
 import { AdieListComponent } from './adie-list.component';
 import { AdieDetailComponent } from './adie-detail.component';
 import { CompanyListComponent } from './company-list.component';
+import { CompanyDetailComponent } from './company-detail.component';
 import { EmployeeListComponent } from './employee-list.component';
 import { LoginComponent } from './login.component';
 
@@ -32,8 +33,9 @@ import { LoginComponent } from './login.component';
 @RouteConfig([
 	{ path: '/adies', name: 'Adies', component: AdieListComponent },
 	{ path: '/companies', name: 'Companies', component: CompanyListComponent },
-	{ path: '/employees', name: 'Employees', component: EmployeeListComponent }
-	{ path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent }
+	{ path: '/employees', name: 'Employees', component: EmployeeListComponent },
+	{ path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent },
+	{ path: '/company/:id', name: 'CompanyDetail', component: CompanyDetailComponent }
 ])
 
 export class AppComponent {
