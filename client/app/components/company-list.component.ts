@@ -1,6 +1,7 @@
 // Angular imports
 import { Component, OnInit } from 'angular2/core';
 import { HTTP_PROVIDERS }    from 'angular2/http';
+import { Router } from 'angular2/router';
 // Rxjs imports
 import { Observable } from 'rxjs/Observable';
 // Project imports
@@ -11,7 +12,7 @@ import { CompanyService } from '../services/company.service';
 	selector: "company-list",
 	template: `
 	<ul>
-		<li *ngFor="#company of companies" (click)="onSelect(company)">
+		<li *ngFor="#company of companies" (click)="gotoDetail(company)">
 			Name: {{ company.name }} | Website: {{ company.website }}
 		</li>
 	</ul>
@@ -25,7 +26,7 @@ export class CompanyListComponent implements OnInit {
 	public companies: Company[];
 	public selectedCompany: Company;
 
-	constructor(private _companyService: CompanyService) {}
+	constructor(private _companyService: CompanyService, private _router: Router) {}
 
 	ngOnInit() {
 		this.getCompanies();
@@ -38,7 +39,7 @@ export class CompanyListComponent implements OnInit {
 				error => this.errorMessage = <any>error)
 	}
 
-	onSelect(company: Company) {
-		this.selectedCompany = company;
+	gotoDetail(company: Company) {
+		this._router.navigate(['CompanyDetail', { id: company.id }]);
 	}
 }
