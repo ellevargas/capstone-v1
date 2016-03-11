@@ -5,6 +5,7 @@ app/**/*.map
 
 .DS_Store
 
+npm-debug.log
 
 app/mocks/*.js
 app/mocks/*.map

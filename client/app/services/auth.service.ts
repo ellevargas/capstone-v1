@@ -1,19 +1,19 @@
 import {Injectable} from "angular2/core";
-import {HTTP_PROVIDERS, Http} from 'angular2/http';
-// import {AuthHttp, AuthConfig, tokenNotExpired, JwtHelper} from 'angular2-jwt';
-import {tokenNotExpired, JwtHelper} from 'angular2-jwt';
+import {HTTP_PROVIDERS, Http, Response, Headers} from 'angular2/http';
+import {AuthHttp, tokenNotExpired, JwtHelper} from 'angular2-jwt';
 
 declare var Auth0Lock;
 
 @Injectable()
 export class Auth0Service {
   lock = new Auth0Lock('srPypYZh5tSUgC270wDX8jFixMukw5TF', 'adacapstone.auth0.com');
-  // jwtHelper: JwtHelper = new JwtHelper();
+  private _adiesUrl = 'https://ada-capstone-api.herokuapp.com/authenticate';  // URL to web api
 
-  // constructor(public http: Http, public authHttp: AuthHttp) { }
+  constructor(public http: Http) { }
 
   login() {
     // debugger;
+    var self = this;
     this.lock.show(
       {
         authParams: {
@@ -24,8 +24,17 @@ export class Auth0Service {
       if (err) {
         throw new Error(err);
       }
-      localStorage.setItem('profile', JSON.stringify(profile));
-      localStorage.setItem('id_token', id_token);
+      var header: Headers = new Headers();
+      var bearerString: string = "Bearer " + id_token;
+      header.append('Authorization', bearerString);
+      self.http.post(this._adiesUrl, null, { headers: header })
+        .subscribe(
+          (res: Response) => {
+            localStorage.setItem('profile', JSON.stringify(profile));
+            localStorage.setItem('id_token', res.json().jwt);
+          },
+          (err) => console.error(err),
+          );
     });
   }
 
@@ -37,21 +46,5 @@ export class Auth0Service {
   loggedIn() {
     return tokenNotExpired();
   }
-  // tokenSubscription() {
-  //   this.authHttp.tokenStream.subscribe(
-  //     data => console.log(data),
-  //     err => console.log(err),
-  //     () => console.log('Complete')
-  //   );
-  // }
 
-  // useJwtHelper() {
-  //   var token = localStorage.getItem('id_token');
-
-  //   console.log(
-  //     this.jwtHelper.decodeToken(token),
-  //     this.jwtHelper.getTokenExpirationDate(token),
-  //     this.jwtHelper.isTokenExpired(token)
-  //   );
-  // }
 }
