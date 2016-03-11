@@ -25,7 +25,7 @@ export class AdieService {
 
 		return this.http.get(this._adiesUrl, { headers: header })
 			.map(res => <Adie[]> res.json().data)
-			.do(data => console.log(data))
+			// .do(data => console.log(data))
 			.catch(this.handleError);
   }
 
@@ -38,7 +38,7 @@ export class AdieService {
 		}
 		return this.http.get(adieUrl, { headers: header })
 			.map(res => <Adie>res.json().data)
-			.do(data => console.log(data))
+			// .do(data => console.log(data))
 			.catch(this.handleError);	
   }
 
