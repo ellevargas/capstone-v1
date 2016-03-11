@@ -11,9 +11,6 @@ declare var Auth0Lock;
   template: `
 		<button *ngIf="!loggedIn()" (click)="login()">Login</button>
     <button *ngIf="loggedIn()" (click)="logout()">Logout</button>
-    <hr>
-    <button *ngIf="loggedIn()" (click)="tokenSubscription()">Show Token from Observable</button>
-    <button *ngIf="loggedIn()" (click)="useJwtHelper()">Use Jwt Helper</button>
    `,
    providers: [ Auth0Service ]
 })
@@ -36,21 +33,21 @@ export class LoginComponent {
     return this._authService.loggedIn();
   }
 
-  tokenSubscription() {
-    this.authHttp.tokenStream.subscribe(
-      data => console.log(data),
-      err => console.log(err),
-      () => console.log('Complete')
-    );
-  }
+  // tokenSubscription() {
+  //   this.authHttp.tokenStream.subscribe(
+  //     data => console.log(data),
+  //     err => console.log(err),
+  //     () => console.log('Complete')
+  //   );
+  // }
 
-  useJwtHelper() {
-    var token = localStorage.getItem('id_token');
+  // useJwtHelper() {
+  //   var token = localStorage.getItem('id_token');
 
-    console.log(
-      this.jwtHelper.decodeToken(token),
-      this.jwtHelper.getTokenExpirationDate(token),
-      this.jwtHelper.isTokenExpired(token)
-    );
-  }
+  //   console.log(
+  //     this.jwtHelper.decodeToken(token),
+  //     this.jwtHelper.getTokenExpirationDate(token),
+  //     this.jwtHelper.isTokenExpired(token)
+  //   );
+  // }
 }
