@@ -5,22 +5,22 @@ import { RouteParams } from 'angular2/router';
 // Project imports
 import { Adie } from '../models/adie';
 import { AdieService } from '../services/adie.service';
+import { AdieFormComponent } from './adie-form.component';
 
 @Component ({
 	selector: 'adie-detail',
 	template: `
 		<div *ngIf="adie">
 			<h2>{{adie.name}} details</h2>
+			<p>{{ adie | json }}</p>
 	    <div><label>id: </label>{{adie.id}}</div>
-	    <div>
-	        <label>name: </label>
-	        <input [(ngModel)]="adie.name" placeholder="name"/>
-	    </div>
+	    <adie-form [adie]="adie"></adie-form>
 	  </div>
     <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
 	`,
-	inputs: ['adie'],
-  providers: [HTTP_PROVIDERS, AdieService]	
+	// inputs: ['adie'],
+  providers: [HTTP_PROVIDERS, AdieService],
+  directives: [AdieFormComponent]
 })
 
 export class AdieDetailComponent implements OnInit {

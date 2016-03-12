@@ -34,7 +34,7 @@ export class Auth0Service {
             localStorage.setItem('profile', JSON.stringify(profile));
             localStorage.setItem('id_token', res.json().jwt);
           },
-          (err) => console.error(err),
+          (err) => console.error(err)
           );
     });
   }
