@@ -48,7 +48,7 @@ export class Auth0Service {
     return tokenNotExpired();
   }
 
-  getAdieId() {
+  getCurrentUserId() {
     if (localStorage.getItem('id_token')) {
       var token = localStorage.getItem('id_token');
       return this.jwtHelper.decodeToken(token).user_id;  
