@@ -18,7 +18,7 @@ import { CompanyService } from '../services/company.service';
 	</ul>
 	<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
   `,
-  providers: [ HTTP_PROVIDERS, CompanyService ]
+  providers: [ HTTP_PROVIDERS, CompanyService ],
 })
 
 export class CompanyListComponent implements OnInit {
