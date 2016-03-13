@@ -21,10 +21,16 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             AdieFormComponent = (function () {
                 function AdieFormComponent() {
                 }
+                Object.defineProperty(AdieFormComponent.prototype, "diagnostic", {
+                    // TODO: Remove this when we're done
+                    get: function () { return JSON.stringify(this.adie); },
+                    enumerable: true,
+                    configurable: true
+                });
                 AdieFormComponent = __decorate([
                     core_1.Component({
                         selector: 'adie-form',
-                        template: "\n\t\t<h3>Edit Your Profile</h3>\n    <div *ngIf =\"adie\">\n        <label>name: </label>\n        <input [(ngModel)]=\"adie.name\" placeholder=\"name\"/>\n    </div>\n    <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n\t",
+                        templateUrl: 'app/views/adie-form.component.html',
                         inputs: ['adie'],
                     }), 
                     __metadata('design:paramtypes', [])
@@ -36,4 +42,4 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9jb21wb25lbnRzL2FkaWUtZm9ybS5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7WUFrQkE7Z0JBR0M7Z0JBQWUsQ0FBQztnQkFoQmpCO29CQUFDLGdCQUFTLENBQUM7d0JBQ1YsUUFBUSxFQUFFLFdBQVc7d0JBQ3JCLFFBQVEsRUFBRSxxUEFPVDt3QkFDRCxNQUFNLEVBQUUsQ0FBQyxNQUFNLENBQUM7cUJBQ2hCLENBQUM7O3FDQUFBO2dCQU1GLHdCQUFDO1lBQUQsQ0FKQSxBQUlDLElBQUE7WUFKRCxpREFJQyxDQUFBIiwiZmlsZSI6ImFwcC9jb21wb25lbnRzL2FkaWUtZm9ybS5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQgfSBmcm9tICdhbmd1bGFyMi9jb3JlJztcblxuLy8gUHJvamVjdCBpbXBvcnRzXG5pbXBvcnQgeyBBZGllIH0gZnJvbSAnLi4vbW9kZWxzL2FkaWUnO1xuXG5AQ29tcG9uZW50KHtcblx0c2VsZWN0b3I6ICdhZGllLWZvcm0nLFxuXHR0ZW1wbGF0ZTogYFxuXHRcdDxoMz5FZGl0IFlvdXIgUHJvZmlsZTwvaDM+XG4gICAgPGRpdiAqbmdJZiA9XCJhZGllXCI+XG4gICAgICAgIDxsYWJlbD5uYW1lOiA8L2xhYmVsPlxuICAgICAgICA8aW5wdXQgWyhuZ01vZGVsKV09XCJhZGllLm5hbWVcIiBwbGFjZWhvbGRlcj1cIm5hbWVcIi8+XG4gICAgPC9kaXY+XG4gICAgPGRpdiBjbGFzcz1cImVycm9yXCIgKm5nSWY9XCJlcnJvck1lc3NhZ2VcIj57e2Vycm9yTWVzc2FnZX19PC9kaXY+XG5cdGAsXG5cdGlucHV0czogWydhZGllJ10sXG59KVxuXG5leHBvcnQgY2xhc3MgQWRpZUZvcm1Db21wb25lbnQge1xuXHRhZGllOiBBZGllO1xuXG5cdGNvbnN0cnVjdG9yKCkge31cbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9jb21wb25lbnRzL2FkaWUtZm9ybS5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7WUFZQTtnQkFHQztnQkFBZSxDQUFDO2dCQUdmLHNCQUFJLHlDQUFVO29CQURmLG9DQUFvQzt5QkFDbkMsY0FBbUIsTUFBTSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsQ0FBQzs7O21CQUFBO2dCQVp4RDtvQkFBQyxnQkFBUyxDQUFDO3dCQUNWLFFBQVEsRUFBRSxXQUFXO3dCQUNyQixXQUFXLEVBQUUsb0NBQW9DO3dCQUNqRCxNQUFNLEVBQUUsQ0FBQyxNQUFNLENBQUM7cUJBQ2hCLENBQUM7O3FDQUFBO2dCQVNGLHdCQUFDO1lBQUQsQ0FQQSxBQU9DLElBQUE7WUFQRCxpREFPQyxDQUFBIiwiZmlsZSI6ImFwcC9jb21wb25lbnRzL2FkaWUtZm9ybS5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQgfSBmcm9tICdhbmd1bGFyMi9jb3JlJztcbmltcG9ydCB7IE5nRm9ybSB9IGZyb20gJ2FuZ3VsYXIyL2NvbW1vbic7XG5cbi8vIFByb2plY3QgaW1wb3J0c1xuaW1wb3J0IHsgQWRpZSB9IGZyb20gJy4uL21vZGVscy9hZGllJztcblxuQENvbXBvbmVudCh7XG5cdHNlbGVjdG9yOiAnYWRpZS1mb3JtJyxcblx0dGVtcGxhdGVVcmw6ICdhcHAvdmlld3MvYWRpZS1mb3JtLmNvbXBvbmVudC5odG1sJyxcblx0aW5wdXRzOiBbJ2FkaWUnXSxcbn0pXG5cbmV4cG9ydCBjbGFzcyBBZGllRm9ybUNvbXBvbmVudCB7XG5cdGFkaWU6IEFkaWU7XG5cblx0Y29uc3RydWN0b3IoKSB7fVxuXG5cdC8vIFRPRE86IFJlbW92ZSB0aGlzIHdoZW4gd2UncmUgZG9uZVxuICBnZXQgZGlhZ25vc3RpYygpIHsgcmV0dXJuIEpTT04uc3RyaW5naWZ5KHRoaXMuYWRpZSk7IH1cbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=

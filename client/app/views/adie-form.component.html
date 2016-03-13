@@ -1,0 +1,14 @@
+<h3>Edit Your Profile</h3>
+<div *ngIf ="adie">
+  <label>Name: </label>
+  <input [(ngModel)]="adie.name" placeholder="name"/>
+  <label>Twitter: </label>
+  <input [(ngModel)]="adie.twitter" placeholder="twitter"/>
+  <label>Linked In: </label>
+  <input [(ngModel)]="adie.linked_in_url" placeholder="linked in URL"/>
+  		<label>Email: </label>
+  <input [(ngModel)]="adie.email" placeholder="email"/>
+  <label>Bio: </label>
+  <input [(ngModel)]="adie.bio" placeholder="Tell us a little about yourself!"/>
+</div>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
