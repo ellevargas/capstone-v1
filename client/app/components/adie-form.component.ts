@@ -12,8 +12,12 @@ import { Adie } from '../models/adie';
 
 export class AdieFormComponent {
 	adie: Adie;
+	errorMessage: string;
 	cohorts: number[] = [0,1,2,3,4];
 
 	constructor() {}
 
+	submitForm() {
+		console.log('Form submitted!');
+	}
 }
