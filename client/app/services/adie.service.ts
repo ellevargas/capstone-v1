@@ -31,7 +31,7 @@ export class AdieService {
 
   getAdie(id: number) {
 		var header: Headers = new Headers();
-		var adieUrl: string = `${this._adiesUrl}${id}`
+		var adieUrl: string = `${this._adiesUrl}${id}`;
 		if (this.authService.loggedIn()) {
       var bearerString: string = "Bearer " + localStorage.getItem('id_token');
       header.append('Authorization', bearerString);
@@ -39,6 +39,19 @@ export class AdieService {
 		return this.http.get(adieUrl, { headers: header })
 			.map(res => <Adie>res.json().data)
 			// .do(data => console.log(data))
+			.catch(this.handleError);	
+  }
+
+  updateAdie(adie: Adie) {
+		var header: Headers = new Headers();
+		var adieUrl: string = `${this._adiesUrl}${adie.id}`;
+		if (this.authService.loggedIn()) {
+      var bearerString: string = "Bearer " + localStorage.getItem('id_token');
+      header.append('Authorization', bearerString);
+		}
+		return this.http.patch(adieUrl, adie.toString(), { headers: header })
+			.map(res => <Adie>res.json().data)
+			.do(data => console.log(data))
 			.catch(this.handleError);	
   }
 
