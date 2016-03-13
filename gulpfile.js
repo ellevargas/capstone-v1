@@ -65,9 +65,15 @@ gulp.task('build:app', function(){
 		.pipe(gulp.dest('dist'));
 });
 
+gulp.task('build:views', function(){
+    return gulp.src(['client/app/views/*'], {
+            base: 'client/app'
+        }).pipe(gulp.dest('dist/app'));
+});
+
 
 gulp.task('build', function(callback){
-    runSequence('clean', 'build:server', 'build:index', 'build:app', callback);
+    runSequence('clean', 'build:server', 'build:index', 'build:views', 'build:app', callback);
 });
 
 gulp.task('default', ['build']);
