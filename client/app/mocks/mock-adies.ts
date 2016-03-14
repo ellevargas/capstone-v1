@@ -12,7 +12,8 @@ export var ADIES: Adie[] = [
         "email": "foo1@bar.com",
         "current_employer": null,
         "intern_company_id": 3,
-        "bio": "Audrey Carlsen was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
+        "bio": "Audrey Carlsen was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things.",
+        "admin": false
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@ export var ADIES: Adie[] = [
         "email": "agolveo@gmail.com",
         "current_employer": null,
         "intern_company_id": 2,
-        "bio": "Asha Golveo was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
+        "bio": "Asha Golveo was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things.",
+        "admin": false
     },
     {
         "id": 3,
@@ -38,7 +40,8 @@ export var ADIES: Adie[] = [
         "email": "shadaeholmes@gmail.com",
         "current_employer": null,
         "intern_company_id": 1,
-        "bio": "Shadae Holmes was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
+        "bio": "Shadae Holmes was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things.",
+        "admin": false
     },
     {
         "id": 4,
@@ -51,7 +54,8 @@ export var ADIES: Adie[] = [
         "email": "hhhsu1@gmail.com",
         "current_employer": null,
         "intern_company_id": 5,
-        "bio": "Hsing-Hui Hsu was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
+        "bio": "Hsing-Hui Hsu was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things.",
+        "admin": false
     },
     {
         "id": 5,
@@ -64,6 +68,7 @@ export var ADIES: Adie[] = [
         "email": "foo2@bar.com",
         "current_employer": null,
         "intern_company_id": 4,
-        "bio": "Blake Johnson was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things."
+        "bio": "Blake Johnson was a student in Ada Developers Academy cohort 1. She is now has a job doing some sort of programming and is doing amazing things.",
+        "admin": false
     }
 ];
