@@ -16,7 +16,7 @@ import { LoginComponent } from './login.component';
 @Component({
 	selector: 'my-app',
 	template: `
-	<h1>{{title}}</h1>
+	<h1 class="ui header">{{title}}</h1>
 	<login></login>
 	<nav>
     <a [routerLink]="['Adies']">Adies</a>
@@ -36,5 +36,5 @@ import { LoginComponent } from './login.component';
 ])
 
 export class AppComponent {
-	public title = "Capstone Practice App";
+	public title = "Adies Info";
 }
