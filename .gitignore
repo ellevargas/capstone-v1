@@ -20,3 +20,6 @@ app/components/*.js.map
 !.elasticbeanstalk/*.global.yml
 
 elb-acm.json
+
+semantic/
+semantic.json

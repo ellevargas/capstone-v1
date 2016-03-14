@@ -10,7 +10,7 @@ import { Adie } from '../models/adie';
 
 @Component({
 	selector: 'adie-form',
-	templateUrl: 'app/views/adie-form.component.html',
+	templateUrl: 'app/components/templates/adie-form.component.html',
 	inputs: ['adie'],
 })
 
