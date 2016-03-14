@@ -34,7 +34,7 @@ export class Auth0Service {
             localStorage.setItem('profile', JSON.stringify(profile));
             localStorage.setItem('id_token', res.json().jwt);
           },
-          (err) => console.error(err),
+          (err) => console.error(err)
           );
     });
   }
@@ -48,7 +48,7 @@ export class Auth0Service {
     return tokenNotExpired();
   }
 
-  getAdieId() {
+  getCurrentUserId() {
     if (localStorage.getItem('id_token')) {
       var token = localStorage.getItem('id_token');
       return this.jwtHelper.decodeToken(token).user_id;  
