@@ -65,15 +65,19 @@ gulp.task('build:app', function(){
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('build:views', function(){
-    return gulp.src(['client/app/views/*'], {
+gulp.task('build:static', function(){
+    var templates = gulp.src(['client/app/components/templates/*'], {
             base: 'client/app'
         }).pipe(gulp.dest('dist/app'));
+    var assets = gulp.src(['client/app/assets/**/*'], {
+            base: 'client/app'
+        }).pipe(gulp.dest('dist/app'));
+    return [templates, assets];
 });
 
 
 gulp.task('build', function(callback){
-    runSequence('clean', 'build:server', 'build:index', 'build:views', 'build:app', callback);
+    runSequence('clean', 'build:server', 'build:index', 'build:static', 'build:app', callback);
 });
 
 gulp.task('default', ['build']);
