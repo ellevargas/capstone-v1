@@ -10,4 +10,5 @@ export class Adie {
 	current_employer: number;
 	intern_company_id: number;
 	bio: string;
+	admin: boolean;
 }
