@@ -30,6 +30,5 @@ export class AdieFormComponent {
 					this.adie = adie;
 				},
 				error => this.errorMessage = <any>error); 
-		console.log('Form submitted!');
 	}
 }

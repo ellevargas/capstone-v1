@@ -53,7 +53,7 @@ export class AdieService {
 		}
 		return this.http.patch(adieUrl, JSON.stringify(adie), { headers: header })
 			.map(res => <Adie>res.json().data)
-			.do(data => console.log(data))
+			// .do(data => console.log(data))
 			.catch(this.handleError);	
   }
 
