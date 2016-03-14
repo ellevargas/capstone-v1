@@ -15,6 +15,7 @@ export class AdieService {
 	constructor (private http: Http, private authService: Auth0Service) {}
 
 	private _adiesUrl = 'https://ada-capstone-api.herokuapp.com/adies/';  // URL to web api
+	// private _adiesUrl = 'http://localhost:3000/adies/';  // URL to web api
 
 	getAdies() {
 		var header: Headers = new Headers();
@@ -44,12 +45,13 @@ export class AdieService {
 
   updateAdie(adie: Adie) {
 		var header: Headers = new Headers();
+		header.append('Content-Type', 'application/json');
 		var adieUrl: string = `${this._adiesUrl}${adie.id}`;
 		if (this.authService.loggedIn()) {
       var bearerString: string = "Bearer " + localStorage.getItem('id_token');
       header.append('Authorization', bearerString);
 		}
-		return this.http.patch(adieUrl, adie.toString(), { headers: header })
+		return this.http.patch(adieUrl, JSON.stringify(adie), { headers: header })
 			.map(res => <Adie>res.json().data)
 			.do(data => console.log(data))
 			.catch(this.handleError);	
