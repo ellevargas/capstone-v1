@@ -1,7 +1,8 @@
 <div class="ui four link cards">
 	<div class="card" *ngFor="#adie of adies" (click)="gotoDetail(adie)">
 		<div class="image">
-			<img [src]="'app/assets/images/adies/' + adie.image">
+			<img *ngIf="adie.image" [src]="'app/assets/images/adies/' + adie.image">
+			<img *ngIf="!adie.image" [src]="'app/assets/images/adies/' + 'ada1.jpg'">
 		</div>
 		<div class="content">
 			<a class="header">{{adie.name}}</a>
