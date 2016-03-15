@@ -1,11 +1,10 @@
-<div class="ui link cards">
+<div class="ui four link cards">
 	<div class="card" *ngFor="#adie of adies" (click)="gotoDetail(adie)">
 		<div class="image">
 			<img [src]="'app/assets/images/adies/' + adie.image">
 		</div>
 		<div class="content">
-			<div class="header">{{adie.name}}</div>
-			{{adie.image}}
+			<a class="header">{{adie.name}}</a>
 		</div>
 		<div class="extra content">
 			<span class="left floated">
