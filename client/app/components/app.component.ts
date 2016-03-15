@@ -1,11 +1,6 @@
 import { Component } from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
-// Import services
-import { AdieService } from '../services/adie.service';
-import { CompanyService } from '../services/company.service';
-import { EmployeeService } from '../services/employee.service';
-
 // Import components
 import { AdieListComponent } from './adie-list.component';
 import { AdieDetailComponent } from './adie-detail.component';
@@ -27,7 +22,6 @@ import { WelcomeComponent } from './welcome.component'
 		<router-outlet></router-outlet>
 	</div>
 	`,
-	providers: [AdieService, CompanyService, EmployeeService],
   directives: [ROUTER_DIRECTIVES, MenuBarComponent],
 })
 
