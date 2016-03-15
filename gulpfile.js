@@ -31,6 +31,7 @@ gulp.task('build:server', function () {
   jsNPMDependencies, sometimes order matters here! so be careful!
 */
 var jsNPMDependencies = [
+    'es6-shim/es6-shim.min.js',
     'systemjs/dist/system-polyfills.js',
     'angular2/bundles/angular2-polyfills.js',
     'systemjs/dist/system.src.js',

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
+    "tsc": "tsc --outDir ../dist/app",
+    "tsc:w": "tsc -w --outDir ../dist/app",
     "lite": "lite-server",
-    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" "
+    "start": "concurrently \"npm run tsc:w --outDir dist\" \"npm run lite\" "
   },
   "author": "Jennie Buechner",
   "license": "MIT",
