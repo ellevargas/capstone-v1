@@ -16,7 +16,6 @@ import { LoginComponent } from './login.component';
 @Component({
 	selector: 'my-app',
 	template: `
-	<h1 class="ui header">{{title}}</h1>
 	<login></login>
 	<nav>
     <a [routerLink]="['Adies']">Adies</a>
