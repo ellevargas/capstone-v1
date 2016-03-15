@@ -50,7 +50,6 @@ System.register(['angular2/core', 'angular2/router', '../services/adie.service',
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = "Adies Info";
                 }
                 AppComponent = __decorate([
                     core_1.Component({

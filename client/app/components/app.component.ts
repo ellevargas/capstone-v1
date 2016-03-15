@@ -40,5 +40,4 @@ import { WelcomeComponent } from './welcome.component'
 ])
 
 export class AppComponent {
-	public title = "Adies Info";
 }
