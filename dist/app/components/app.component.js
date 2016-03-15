@@ -52,7 +52,7 @@ System.register(['angular2/core', 'angular2/router', '../services/adie.service',
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t<h1 class=\"ui header\">{{title}}</h1>\n\t<login></login>\n\t<nav>\n    <a [routerLink]=\"['Adies']\">Adies</a>\n    <a [routerLink]=\"['Companies']\">Companies</a>\n  </nav>\n\t<router-outlet></router-outlet>\n\t",
+                        template: "\n\t<login></login>\n\t<nav>\n    <a [routerLink]=\"['Adies']\">Adies</a>\n    <a [routerLink]=\"['Companies']\">Companies</a>\n  </nav>\n\t<router-outlet></router-outlet>\n\t",
                         providers: [adie_service_1.AdieService, company_service_1.CompanyService, employee_service_1.EmployeeService],
                         directives: [router_1.ROUTER_DIRECTIVES, login_component_1.LoginComponent],
                     }),
