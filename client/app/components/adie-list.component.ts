@@ -12,14 +12,7 @@ import { AdieService } from '../services/adie.service';
 
 @Component({
 	selector: "adie-list",
-	template: `
-	<ul>
-		<li *ngFor="#adie of adies" (click)="gotoDetail(adie)">
-			Name: {{ adie.name }} | Cohort: {{ adie.cohort }}
-		</li>
-	</ul>
-  <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-  `,
+	templateUrl: 'app/components/templates/adie-list.component.html',
   providers: [HTTP_PROVIDERS, AdieService]	
 })
 

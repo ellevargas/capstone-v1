@@ -1,0 +1,19 @@
+<div class="ui link cards">
+	<div class="card" *ngFor="#adie of adies" (click)="gotoDetail(adie)">
+		<div class="image">
+			<img [src]="'app/assets/images/adies/' + adie.image">
+		</div>
+		<div class="content">
+			<div class="header">{{adie.name}}</div>
+		</div>
+		<div class="extra content">
+			<span class="left floated">
+				Cohort {{adie.cohort}}
+			</span>
+      <span class="right floated">
+        Interned at...
+      </span>
+    </div>
+	</div>
+</div>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

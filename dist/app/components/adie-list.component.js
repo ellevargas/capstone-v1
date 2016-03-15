@@ -46,7 +46,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 AdieListComponent = __decorate([
                     core_1.Component({
                         selector: "adie-list",
-                        template: "\n\t<ul>\n\t\t<li *ngFor=\"#adie of adies\" (click)=\"gotoDetail(adie)\">\n\t\t\tName: {{ adie.name }} | Cohort: {{ adie.cohort }}\n\t\t</li>\n\t</ul>\n  <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n  ",
+                        templateUrl: 'app/components/templates/adie-list.component.html',
                         providers: [http_1.HTTP_PROVIDERS, adie_service_1.AdieService]
                     }), 
                     __metadata('design:paramtypes', [adie_service_1.AdieService, router_1.Router])
