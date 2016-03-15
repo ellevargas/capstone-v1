@@ -24,7 +24,8 @@
     <link rel="stylesheet" type="text/css" href="app/assets/stylesheets/semantic.min.css">
     <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
     <script src="app/assets/javascripts/semantic.min.js"></script>
-
+    <!-- TypedJS -->
+    <script src="app/assets/javascripts/typed.min.js"></script>
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
@@ -43,6 +44,12 @@
       });
       System.import('app/main')
             .then(null, console.error.bind(console));
+      $(function(){
+          $(".element").typed({
+            strings: ["learners", "builders", "developers", "students", "women", "gender non-binary", "Adies."],
+            typeSpeed: 0
+          });
+      });
     </script>
 
   </head>
@@ -63,6 +70,7 @@
         </div>
       </div>
     </div>
+    <div>We are <span class="element"></span></div>
 
     <div class="ui main text container">
       <my-app>Loading...</my-app>  
