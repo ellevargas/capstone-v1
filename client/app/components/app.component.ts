@@ -11,20 +11,22 @@ import { AdieListComponent } from './adie-list.component';
 import { AdieDetailComponent } from './adie-detail.component';
 import { CompanyListComponent } from './company-list.component';
 import { CompanyDetailComponent } from './company-detail.component';
-import { LoginComponent } from './login.component';
+import { MenuBarComponent } from './menu.component';
 
 @Component({
 	selector: 'my-app',
 	template: `
-	<login></login>
-	<nav>
-    <a [routerLink]="['Adies']">Adies</a>
-    <a [routerLink]="['Companies']">Companies</a>
-  </nav>
-	<router-outlet></router-outlet>
+	<menu-bar></menu-bar>
+	<div class="ui main text container">
+		<nav>
+	    <a [routerLink]="['Adies']">Adies</a>
+	    <a [routerLink]="['Companies']">Companies</a>
+	  </nav>
+		<router-outlet></router-outlet>
+	</div>
 	`,
 	providers: [AdieService, CompanyService, EmployeeService],
-  directives: [ROUTER_DIRECTIVES, LoginComponent],
+  directives: [ROUTER_DIRECTIVES, MenuBarComponent],
 })
 
 @RouteConfig([

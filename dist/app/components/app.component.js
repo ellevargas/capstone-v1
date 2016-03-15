@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', '../services/adie.service', '../services/company.service', '../services/employee.service', './adie-list.component', './adie-detail.component', './company-list.component', './company-detail.component', './login.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../services/adie.service', '../services/company.service', '../services/employee.service', './adie-list.component', './adie-detail.component', './company-list.component', './company-detail.component', './menu.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', '../services/adie.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, adie_service_1, company_service_1, employee_service_1, adie_list_component_1, adie_detail_component_1, company_list_component_1, company_detail_component_1, login_component_1;
+    var core_1, router_1, adie_service_1, company_service_1, employee_service_1, adie_list_component_1, adie_detail_component_1, company_list_component_1, company_detail_component_1, menu_component_1;
     var AppComponent;
     return {
         setters:[
@@ -41,8 +41,8 @@ System.register(['angular2/core', 'angular2/router', '../services/adie.service',
             function (company_detail_component_1_1) {
                 company_detail_component_1 = company_detail_component_1_1;
             },
-            function (login_component_1_1) {
-                login_component_1 = login_component_1_1;
+            function (menu_component_1_1) {
+                menu_component_1 = menu_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -52,9 +52,9 @@ System.register(['angular2/core', 'angular2/router', '../services/adie.service',
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t<login></login>\n\t<nav>\n    <a [routerLink]=\"['Adies']\">Adies</a>\n    <a [routerLink]=\"['Companies']\">Companies</a>\n  </nav>\n\t<router-outlet></router-outlet>\n\t",
+                        template: "\n\t<menu-bar></menu-bar>\n\t<div class=\"ui main text container\">\n\t\t<nav>\n\t    <a [routerLink]=\"['Adies']\">Adies</a>\n\t    <a [routerLink]=\"['Companies']\">Companies</a>\n\t  </nav>\n\t\t<router-outlet></router-outlet>\n\t</div>\n\t",
                         providers: [adie_service_1.AdieService, company_service_1.CompanyService, employee_service_1.EmployeeService],
-                        directives: [router_1.ROUTER_DIRECTIVES, login_component_1.LoginComponent],
+                        directives: [router_1.ROUTER_DIRECTIVES, menu_component_1.MenuBarComponent],
                     }),
                     router_1.RouteConfig([
                         { path: '/adies', name: 'Adies', component: adie_list_component_1.AdieListComponent },
