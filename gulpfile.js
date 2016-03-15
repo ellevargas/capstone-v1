@@ -7,6 +7,8 @@ var ts = require('gulp-typescript');
 var del = require('del');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
+var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 
 // SERVER
 gulp.task('clean', function(){
@@ -29,6 +31,7 @@ gulp.task('build:server', function () {
   jsNPMDependencies, sometimes order matters here! so be careful!
 */
 var jsNPMDependencies = [
+    'es6-shim/es6-shim.min.js',
     'systemjs/dist/system-polyfills.js',
     'angular2/bundles/angular2-polyfills.js',
     'systemjs/dist/system.src.js',
@@ -81,3 +84,48 @@ gulp.task('build', function(callback){
 });
 
 gulp.task('default', ['build']);
+
+// 
+// Browser sync
+// Start a local server in base directory
+gulp.task('serve', function() {
+    browserSync.init({
+        server: {
+            baseDir: './'
+        }
+    });
+
+    // Watch for changes in html and ts files in base directory, reload if they occur
+    gulp.watch(['**/*.html', '**/*.ts'], ['reloady']);
+
+    // Watches for changes in css files, grabs the files, pipes them to browsersync stream
+    // This injects the css into the page without a reload
+    gulp.watch('**/*.css', function() {
+        gulp.src('*css')
+            .pipe(browserSync.stream());
+    });
+});
+
+gulp.task('compile-ts', function() {
+    var sourceTsFiles = [
+        config.allTs,
+        config.typings
+    ];
+
+    var tsResult = gulp
+        .src(sourceTsFiles)
+        .pipe(sourcemaps.init())
+        .pipe(tsc(tsProject));
+
+    return tsResult.js
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(config.tsOutputPath));
+});
+
+gulp.task('reloady', ['compile-ts'], function() {
+    console.log("Reload SHOULD have happened.");
+    browserSync.reload();
+});
+
+
+
