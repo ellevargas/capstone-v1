@@ -12,6 +12,7 @@ import { AdieDetailComponent } from './adie-detail.component';
 import { CompanyListComponent } from './company-list.component';
 import { CompanyDetailComponent } from './company-detail.component';
 import { MenuBarComponent } from './menu.component';
+import { WelcomeComponent } from './welcome.component'
 
 @Component({
 	selector: 'my-app',
@@ -19,6 +20,7 @@ import { MenuBarComponent } from './menu.component';
 	<menu-bar></menu-bar>
 	<div class="ui main text container">
 		<nav>
+			<a [routerLink]="['Welcome']">Welcome</a>
 	    <a [routerLink]="['Adies']">Adies</a>
 	    <a [routerLink]="['Companies']">Companies</a>
 	  </nav>
@@ -30,6 +32,7 @@ import { MenuBarComponent } from './menu.component';
 })
 
 @RouteConfig([
+	{ path: '/', name: 'Welcome', component: WelcomeComponent },
 	{ path: '/adies', name: 'Adies', component: AdieListComponent },
 	{ path: '/companies', name: 'Companies', component: CompanyListComponent },
 	{ path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent },
