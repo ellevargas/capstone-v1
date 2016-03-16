@@ -13,11 +13,12 @@ import { WelcomeComponent } from './welcome.component'
 	selector: 'my-app',
 	template: `
 	<menu-bar></menu-bar>
-	<div class="ui main text container">
-
+	<div class="ui text container pad-top">
+		<div class="ui hidden divider"></div>
 		<router-outlet></router-outlet>
 	</div>
 	`,
+	styleUrls: ['app/assets/stylesheets/app.component.css'],
   directives: [ROUTER_DIRECTIVES, MenuBarComponent],
 })
 
