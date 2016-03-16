@@ -24,7 +24,10 @@ export class LoginComponent {
   lock = new Auth0Lock('srPypYZh5tSUgC270wDX8jFixMukw5TF', 'adacapstone.auth0.com');
   jwtHelper: JwtHelper = new JwtHelper();
 
-  constructor(public http: Http, public authHttp: AuthHttp, private _authService: Auth0Service) { }
+  constructor(
+    public http: Http, 
+    public authHttp: AuthHttp, 
+    private _authService: Auth0Service) { }
 
   login() {
     this._authService.login();
@@ -38,21 +41,4 @@ export class LoginComponent {
     return this._authService.loggedIn();
   }
 
-  // tokenSubscription() {
-  //   this.authHttp.tokenStream.subscribe(
-  //     data => console.log(data),
-  //     err => console.log(err),
-  //     () => console.log('Complete')
-  //   );
-  // }
-
-  // useJwtHelper() {
-  //   var token = localStorage.getItem('id_token');
-
-  //   console.log(
-  //     this.jwtHelper.decodeToken(token),
-  //     this.jwtHelper.getTokenExpirationDate(token),
-  //     this.jwtHelper.isTokenExpired(token)
-  //   );
-  // }
 }
