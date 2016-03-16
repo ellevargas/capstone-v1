@@ -30,7 +30,7 @@ System.register(['angular2/core', 'angular2/router', './login.component'], funct
                 MenuBarComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-bar',
-                        template: "\n\t\t<div class=\"ui stackable menu fixed top sticky\">\n      <a href=\"http://adadevelopersacademy.org/\" class=\"header item\">\n        <img class=\"logo\" src=\"app/assets/images/logos/ada_large.png\" alt=\"Logo for Ada Developers Academy\">\n      </a>\n        <a class=\"item\" [routerLink]=\"['Home']\">Home</a>\n        <a class=\"item\" [routerLink]=\"['Adies']\">Adies</a>\n        <a class=\"item\" [routerLink]=\"['Companies']\">Companies</a>\n      <div class=\"right menu\">\n        <login></login>\n      </div>\n        \n    </div>\n\t",
+                        template: "\n\t\t<div class=\"ui menu fixed top sticky\">\n      <a href=\"http://adadevelopersacademy.org/\" class=\"header item\">\n        <img class=\"logo\" src=\"app/assets/images/logos/ada_large.png\" alt=\"Logo for Ada Developers Academy\">\n      </a>\n        <a class=\"item\" [routerLink]=\"['Home']\">Home</a>\n        <a class=\"item\" [routerLink]=\"['Adies']\">Adies</a>\n        <a class=\"item\" [routerLink]=\"['Companies']\">Companies</a>\n      <div class=\"right menu\">\n        <login></login>\n      </div>\n        \n    </div>\n\t",
                         directives: [login_component_1.LoginComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
