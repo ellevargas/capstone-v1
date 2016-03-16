@@ -30,7 +30,7 @@ export class AdieListComponent implements OnInit {
 	getAdies() {
 		this._adieService.getAdies()
 			.subscribe(
-			adies => { this.adies = adies; console.log(this.adies); },
+			adies => this.adies = adies,
 		  error => this.errorMessage = <any>error);
 	}
 

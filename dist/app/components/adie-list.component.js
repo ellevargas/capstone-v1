@@ -38,7 +38,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 AdieListComponent.prototype.getAdies = function () {
                     var _this = this;
                     this._adieService.getAdies()
-                        .subscribe(function (adies) { _this.adies = adies; console.log(_this.adies); }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (adies) { return _this.adies = adies; }, function (error) { return _this.errorMessage = error; });
                 };
                 AdieListComponent.prototype.gotoDetail = function (adie) {
                     this._router.navigate(['AdieDetail', { id: adie.id }]);
