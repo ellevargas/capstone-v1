@@ -5,22 +5,18 @@
 			<img *ngIf="!adie.image" [src]="'app/assets/images/adies/' + 'ada1.jpg'">
 		</div>
 		<div class="content">
-			<div class="header">{{adie.name}}</div>
+			<div class="ui small header red-text">{{adie.name}}</div>
 			<div class="meta">
-				<i *ngIf="adie.github_username" class="github square icon"></i>
-				<i *ngIf="adie.linked_in_url" class="linkedin square icon"></i>
-				<i *ngIf="adie.twitter" class="twitter icon"></i>
-				<i *ngIf="adie.email" class="mail square icon"></i>
+				<div class="left floated">
+					C{{adie.cohort}}
+				</div>
+				<div class="right floated">
+					<i *ngIf="adie.linked_in_url" class="no-margin linkedin square icon"></i>
+					<i *ngIf="adie.twitter" class="no-margin twitter icon"></i>
+					<i *ngIf="adie.email" class="no-margin mail square icon"></i>	
+				</div>
 			</div>
 		</div>
-		<div class="extra content">
-			<span class="left floated">
-				Cohort {{adie.cohort}}
-			</span>
-      <span class="right floated">
-        Interned at...
-      </span>
-    </div>
 	</div>
 </div>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
