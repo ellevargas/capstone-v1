@@ -4,7 +4,7 @@ export class Adie {
 	github_username: string;
 	cohort: number;
 	twitter: string;
-	linked_in: string;
+	linked_in_url: string;
 	image: string;
 	email: string;
 	current_employer: number;

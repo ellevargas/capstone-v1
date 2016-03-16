@@ -6,6 +6,12 @@
 		</div>
 		<div class="content">
 			<a class="header">{{adie.name}}</a>
+			<div class="meta">
+				<i *ngIf="adie.github_username" class="github square icon"></i>
+				<i *ngIf="adie.linked_in_url" class="linkedin square icon"></i>
+				<i *ngIf="adie.twitter" class="twitter icon"></i>
+				<i *ngIf="adie.email" class="mail square icon"></i>
+			</div>
 		</div>
 		<div class="extra content">
 			<span class="left floated">
