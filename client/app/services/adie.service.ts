@@ -14,8 +14,7 @@ import { Auth0Service } from './auth.service';
 export class AdieService {
 	constructor (private http: Http, private authService: Auth0Service) {}
 
-	private _adiesUrl = 'https://ada-capstone-api.herokuapp.com/adies/';  // URL to web api
-	// private _adiesUrl = 'http://localhost:3000/adies/';  // URL to web api
+	private _adiesUrl = 'https://ada-capstone-api.herokuapp.com/adies/';
 
 	getAdies() {
 		var header: Headers = new Headers();
@@ -26,7 +25,7 @@ export class AdieService {
 
 		return this.http.get(this._adiesUrl, { headers: header })
 			.map(res => <Adie[]> res.json().data)
-			// .do(data => console.log(data))
+			.do(data => console.log(data))
 			.catch(this.handleError);
   }
 

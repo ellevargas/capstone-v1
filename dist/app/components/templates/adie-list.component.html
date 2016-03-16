@@ -6,7 +6,7 @@
 				<img *ngIf="!adie.image" [src]="'app/assets/images/adies/' + 'ada1.jpg'">
 			</div>
 			<div class="small header">{{adie.name}}</div>
-			<div class="meta">Company Name</div>
+			<div *ngIf="adie.company" class="meta">{{adie.company.name}}</div>
 		</div>
 		<div class="extra content">
 			<div class="left floated">

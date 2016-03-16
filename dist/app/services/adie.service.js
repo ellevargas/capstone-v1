@@ -31,9 +31,8 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', './auth.se
                 function AdieService(http, authService) {
                     this.http = http;
                     this.authService = authService;
-                    this._adiesUrl = 'https://ada-capstone-api.herokuapp.com/adies/'; // URL to web api
+                    this._adiesUrl = 'https://ada-capstone-api.herokuapp.com/adies/';
                 }
-                // private _adiesUrl = 'http://localhost:3000/adies/';  // URL to web api
                 AdieService.prototype.getAdies = function () {
                     var header = new http_1.Headers();
                     if (this.authService.loggedIn()) {
@@ -42,6 +41,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', './auth.se
                     }
                     return this.http.get(this._adiesUrl, { headers: header })
                         .map(function (res) { return res.json().data; })
+                        .do(function (data) { return console.log(data); })
                         .catch(this.handleError);
                 };
                 AdieService.prototype.getAdie = function (id) {
