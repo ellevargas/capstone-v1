@@ -41,7 +41,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', './auth.se
                 };
                 CompanyService.prototype.getCompany = function (id) {
                     var header = new http_1.Headers();
-                    var companiesUrl = "https://ada-capstone-api.herokuapp.com/companies_employees/" + id;
+                    var companiesUrl = "https://ada-capstone-api.herokuapp.com/companies_complete/" + id;
                     if (this.authService.loggedIn()) {
                         var bearerString = "Bearer " + localStorage.getItem('id_token');
                         header.append('Authorization', bearerString);

@@ -25,7 +25,7 @@ export class CompanyService {
 
 	getCompany(id: number) {
 		var header: Headers = new Headers();
-		var companiesUrl: string = `https://ada-capstone-api.herokuapp.com/companies_employees/${id}`
+		var companiesUrl: string = `https://ada-capstone-api.herokuapp.com/companies_complete/${id}`
 		if (this.authService.loggedIn()) {
       var bearerString: string = "Bearer " + localStorage.getItem('id_token');
       header.append('Authorization', bearerString);
