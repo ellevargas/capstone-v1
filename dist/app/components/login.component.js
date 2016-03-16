@@ -47,7 +47,7 @@ System.register(['angular2/core', 'angular2-jwt', 'angular2/http', '../services/
                 LoginComponent = __decorate([
                     core_1.Component({
                         selector: 'login',
-                        template: "\n\t\t<button class=\"ui basic vertical animated button\" tabindex=\"0\" *ngIf=\"!loggedIn()\" (click)=\"login()\">\n      <div class=\"hidden content\">Adies only!</div>\n      <div class=\"visible content\"><i class=\"large github square icon\"></i>Login</div>\n    </button>\n    <button class=\"ui basic button\" *ngIf=\"loggedIn()\" (click)=\"logout()\"><i class=\"large github square icon\"></i>Logout</button>\n   ",
+                        template: "\n    <div class=\"ui item\">\n  \t\t<button class=\"ui basic vertical animated button\" tabindex=\"0\" *ngIf=\"!loggedIn()\" (click)=\"login()\">\n        <div class=\"hidden content\">Adies only!</div>\n        <div class=\"visible content\"><i class=\"large github square icon\"></i>Login</div>\n      </button>\n      <button class=\"ui basic button\" *ngIf=\"loggedIn()\" (click)=\"logout()\"><i class=\"large github square icon\"></i>Logout</button>\n    </div>\n   ",
                         providers: [auth_service_1.Auth0Service]
                     }), 
                     __metadata('design:paramtypes', [http_1.Http, angular2_jwt_1.AuthHttp, auth_service_1.Auth0Service])

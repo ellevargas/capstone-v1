@@ -9,11 +9,13 @@ declare var Auth0Lock;
 @Component({
   selector: 'login',
   template: `
-		<button class="ui basic vertical animated button" tabindex="0" *ngIf="!loggedIn()" (click)="login()">
-      <div class="hidden content">Adies only!</div>
-      <div class="visible content"><i class="large github square icon"></i>Login</div>
-    </button>
-    <button class="ui basic button" *ngIf="loggedIn()" (click)="logout()"><i class="large github square icon"></i>Logout</button>
+    <div class="ui item">
+  		<button class="ui basic vertical animated button" tabindex="0" *ngIf="!loggedIn()" (click)="login()">
+        <div class="hidden content">Adies only!</div>
+        <div class="visible content"><i class="large github square icon"></i>Login</div>
+      </button>
+      <button class="ui basic button" *ngIf="loggedIn()" (click)="logout()"><i class="large github square icon"></i>Logout</button>
+    </div>
    `,
    providers: [ Auth0Service ]
 })

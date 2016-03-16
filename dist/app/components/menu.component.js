@@ -1,4 +1,4 @@
-System.register(['angular2/core', './login.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './login.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', './login.component'], function(exports_1, cont
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, login_component_1;
+    var core_1, router_1, login_component_1;
     var MenuBarComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (login_component_1_1) {
                 login_component_1 = login_component_1_1;
@@ -27,8 +30,8 @@ System.register(['angular2/core', './login.component'], function(exports_1, cont
                 MenuBarComponent = __decorate([
                     core_1.Component({
                         selector: 'menu-bar',
-                        template: "\n\t\t<div class=\"ui menu\">\n      <div class=\"ui container\">\n        <a href=\"http://adadevelopersacademy.org/\" class=\"header item\">\n          <img class=\"logo\" src=\"app/assets/images/logos/ada_large.png\" alt=\"Logo for Ada Developers Academy\">\n        </a>\n        <div class=\"header item borderless\">\n          <h1 class=\"ui header\">\n            We Are Adies\n          </h1>\n          <login></login>\n        </div>\n      </div>\n    </div>\n\t",
-                        directives: [login_component_1.LoginComponent]
+                        template: "\n\t\t<div class=\"ui stackable menu\">\n      <a href=\"http://adadevelopersacademy.org/\" class=\"header item\">\n        <img class=\"logo\" src=\"app/assets/images/logos/ada_large.png\" alt=\"Logo for Ada Developers Academy\">\n      </a>\n        <a class=\"item\" [routerLink]=\"['Home']\">Home</a>\n        <a class=\"item\" [routerLink]=\"['Adies']\">Adies</a>\n        <a class=\"item\" [routerLink]=\"['Companies']\">Companies</a>\n      <div class=\"right menu\">\n        <login></login>\n      </div>\n        \n    </div>\n\t",
+                        directives: [login_component_1.LoginComponent, router_1.ROUTER_DIRECTIVES]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MenuBarComponent);

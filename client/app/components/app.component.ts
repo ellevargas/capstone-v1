@@ -14,11 +14,7 @@ import { WelcomeComponent } from './welcome.component'
 	template: `
 	<menu-bar></menu-bar>
 	<div class="ui main text container">
-		<nav>
-			<a [routerLink]="['Welcome']">Welcome</a>
-	    <a [routerLink]="['Adies']">Adies</a>
-	    <a [routerLink]="['Companies']">Companies</a>
-	  </nav>
+
 		<router-outlet></router-outlet>
 	</div>
 	`,
@@ -26,7 +22,7 @@ import { WelcomeComponent } from './welcome.component'
 })
 
 @RouteConfig([
-	{ path: '/', name: 'Welcome', component: WelcomeComponent },
+	{ path: '/', name: 'Home', component: WelcomeComponent },
 	{ path: '/adies', name: 'Adies', component: AdieListComponent },
 	{ path: '/companies', name: 'Companies', component: CompanyListComponent },
 	{ path: '/adie/:id', name: 'AdieDetail', component: AdieDetailComponent },
