@@ -1,0 +1,10 @@
+<div class="ui two link cards">
+	<div class="card" *ngFor="#company of companies" (click)="gotoDetail(company)">
+		<div class="content">
+			<img class="rounded ui medium centered image" [src]="'app/assets/images/logos/' + company.logo">
+			<div class="ui divider"></div>
+			<div class="small meta right floated">{{company.industry}}</div>
+		</div>
+	</div>
+</div>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

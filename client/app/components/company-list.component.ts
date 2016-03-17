@@ -10,14 +10,7 @@ import { CompanyService } from '../services/company.service';
 
 @Component({
 	selector: "company-list",
-	template: `
-	<ul>
-		<li *ngFor="#company of companies" (click)="gotoDetail(company)">
-			Name: {{ company.name }} | Website: {{ company.website }}
-		</li>
-	</ul>
-	<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-  `,
+	templateUrl: 'app/components/templates/company-list.component.html',
   providers: [ HTTP_PROVIDERS, CompanyService ],
 })
 

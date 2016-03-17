@@ -7,8 +7,9 @@ export class Adie {
 	linked_in_url: string;
 	image: string;
 	email: string;
-	current_employer: number;
-	intern_company_id: number;
+	companyId: number;
 	bio: string;
 	admin: boolean;
+	capstone_description: string;
+	capstone_url: string;
 }

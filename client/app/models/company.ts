@@ -7,4 +7,5 @@ export class Company {
 	zip: number;
 	website: string;
 	logo: string;
+	industry: string;
 }
