@@ -81,9 +81,13 @@ gulp.task('build:static', function(){
     return [templates, assets];
 });
 
+gulp.task('build:modules', function(){
+    return gulp.src(['node_modules/**/*'])
+        .pipe(gulp.dest('dist/node_modules'));
+});
 
 gulp.task('build', function(callback){
-    runSequence('clean', 'build:server', 'build:index', 'build:static', 'build:app', callback);
+    runSequence('clean', 'build:server', 'build:index', 'build:static', 'build:modules', 'build:app', callback);
 });
 
 gulp.task('default', ['build']);
