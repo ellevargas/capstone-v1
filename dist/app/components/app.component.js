@@ -45,7 +45,7 @@ System.register(['angular2/core', 'angular2/router', './adie-list.component', '.
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n\t<menu-bar></menu-bar>\n\t<div class=\"ui text container pad-top\">\n\t\t<div class=\"ui hidden divider\"></div>\n\t\t<router-outlet></router-outlet>\n\t</div>\n\t",
+                        template: "\n\t<menu-bar></menu-bar>\n\t<div class=\"ui text container pad-top\">\n\t\t<router-outlet></router-outlet>\n\t</div>\n\t",
                         styleUrls: ['app/assets/stylesheets/app.component.css'],
                         directives: [router_1.ROUTER_DIRECTIVES, menu_component_1.MenuBarComponent],
                     }),

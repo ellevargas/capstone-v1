@@ -51,8 +51,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 AdieDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'adie-detail',
-                        template: "\n\t\t<div *ngIf=\"adie\">\n\t\t\t<h2>{{adie.name}} details</h2>\n\t\t\t<p>{{ adie | json }}</p>\n\t    <div><label>id: </label>{{adie.id}}</div>\n\t    <adie-form *ngIf=\"adie.id === currentUserId\" [adie]=\"adie\"></adie-form>\n\t  </div>\n    <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n\t",
-                        // inputs: ['adie'],
+                        templateUrl: 'app/components/templates/adie-detail.component.html',
                         providers: [http_1.HTTP_PROVIDERS, adie_service_1.AdieService],
                         directives: [adie_form_component_1.AdieFormComponent]
                     }), 

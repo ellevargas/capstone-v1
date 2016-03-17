@@ -1,0 +1,72 @@
+<div *ngIf="adie">
+	<div class="ui grid">
+		<div class="row centered">
+			<h1 class="ui header">{{adie.name}}
+			<span class="ui sub header">
+				COHORT {{adie.cohort}}
+			</span></h1>
+		</div>
+		<h4 class="ui horizontal divider header">
+		  <i class="cocktail icon"></i>
+		  Social
+		</h4>
+		<div class="ten wide centered column">
+			<table class="ui definition table">
+			  <tbody>
+			    <tr>
+			      <td><i class="mail outline icon"></i> Email</td>
+			      <td *ngIf="adie.email"><a href="mailto:{{adie.email}}">{{adie.email}}</a></td>
+			      <td *ngIf="!adie.email"><i class="attention icon"></i> Undefined</td>
+			    </tr>
+			    <tr>
+			      <td><i class="twitter icon"></i> Twitter</td>
+			      <td *ngIf="adie.twitter">{{adie.twitter}}</td>
+			      <td *ngIf="!adie.twitter"><i class="attention icon"></i> Undefined</td>
+			    </tr>
+			    <tr>
+			    	<td><i class="linkedin square icon"></i> Linked In</td>
+			      <td *ngIf="adie.linked_in_url"><a href="{{adie.linked_in_url}}">{{adie.linked_in_url}}</a></td>
+			      <td *ngIf="!adie.linked_in_url"><i class="attention icon"></i> Undefined</td>
+			    </tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="four wide column">
+			<img class="ui small rounded image" *ngIf="adie.image" [src]="'app/assets/images/adies/' + adie.image">
+			<img class="ui small rounded image" *ngIf="!adie.image" [src]="'app/assets/images/adies/' + 'ada1.jpg'">
+		</div>
+	  <h4 class="ui horizontal divider header">
+		  <i class="laptop icon"></i>
+		  Professional
+		</h4>	
+		<div class="twelve wide centered column">
+			<table class="ui definition table">
+		  <tbody>
+		    <tr>
+		      <td><i class="github icon"></i> Github</td>
+		      <td *ngIf="adie.github_username"><a href="https://github.com/{{adie.github_username}}">{{adie.github_username}}</a></td>
+		      <td *ngIf="!adie.github_username"><i class="attention icon"></i> Undefined</td>
+		    </tr>
+		    <tr>
+		      <td><i class="building icon"></i> Internship</td>
+		      <td *ngIf="adie.company"><a href="https://www.adies.info/company/{{adie.companyId}}">{{adie.company}}</a></td>
+		      <td *ngIf="!adie.company"><i class="attention icon"></i> Undefined</td>
+		    </tr>
+		    
+		    <tr>
+		      <td><i class="student icon"></i> Capstone</td>
+		      <td *ngIf="adie.capstone_url"><a href="{{adie.capstone_url}}">{{adie.capstone_url}}</a></td>
+		      <td *ngIf="!adie.capstone_url"><i class="attention icon"></i> Undefined</td>
+		    </tr>
+		    <tr>
+		    	<td><i class="write icon"></i> Description</td>
+		      <td *ngIf="adie.capstone_description">{{adie.capstone_description}}</td>
+		      <td *ngIf="!adie.capstone_description"><i class="attention icon"></i> Undefined</td>
+		    </tr>
+			</tbody>
+		</table>
+		</div>
+	  <adie-form *ngIf="adie.id === currentUserId" [adie]="adie"></adie-form>
+	</div>	
+</div>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

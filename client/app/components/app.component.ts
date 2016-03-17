@@ -14,7 +14,6 @@ import { WelcomeComponent } from './welcome.component'
 	template: `
 	<menu-bar></menu-bar>
 	<div class="ui text container pad-top">
-		<div class="ui hidden divider"></div>
 		<router-outlet></router-outlet>
 	</div>
 	`,

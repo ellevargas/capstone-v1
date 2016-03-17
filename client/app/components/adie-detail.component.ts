@@ -10,16 +10,7 @@ import { AdieFormComponent } from './adie-form.component';
 
 @Component ({
 	selector: 'adie-detail',
-	template: `
-		<div *ngIf="adie">
-			<h2>{{adie.name}} details</h2>
-			<p>{{ adie | json }}</p>
-	    <div><label>id: </label>{{adie.id}}</div>
-	    <adie-form *ngIf="adie.id === currentUserId" [adie]="adie"></adie-form>
-	  </div>
-    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-	`,
-	// inputs: ['adie'],
+	templateUrl: 'app/components/templates/adie-detail.component.html',
   providers: [HTTP_PROVIDERS, AdieService],
   directives: [AdieFormComponent]
 })
