@@ -1,6 +1,8 @@
 node_modules/
 client/
 server/
+semantic/
+semantic.json
 
 .DS_Store
 
