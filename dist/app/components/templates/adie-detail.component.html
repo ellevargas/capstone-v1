@@ -1,7 +1,6 @@
-<div *ngIf="loading" class="ui active inverted">
+<div *ngIf="loading" class="ui active inverted dimmer">
   <div class="ui text loader">Loading</div>
 </div>
-
 <div *ngIf="adie">
 	<div class="ui grid">
 		<div class="row centered">
@@ -70,7 +69,8 @@
 			</tbody>
 		</table>
 		</div>
-	  <adie-form *ngIf="adie.id === currentUserId" [adie]="adie"></adie-form>
 	</div>	
+	<adie-form *ngIf="adie.id === currentUserId" [adie]="adie"></adie-form>
 </div>
+
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

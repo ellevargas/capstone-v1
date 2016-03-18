@@ -3,23 +3,45 @@
     <i class="setting icon"></i>
     Edit Profile
 </h4>   
-<div *ngIf ="adie">
-  <form action="">
-    <label>Name: </label>
-    <input [(ngModel)]="adie.name" placeholder="name" required/>
-    <label for="cohort">Cohort</label>
-    <select [(ngModel)]="adie.cohort" required>
-      <option *ngFor="#cohort of cohorts" [value]="cohort">{{cohort}}</option>
-    </select>
-    <label>Twitter: </label>
-    <input [(ngModel)]="adie.twitter" placeholder="twitter"/>
-    <label>Linked In: </label>
-    <input [(ngModel)]="adie.linked_in_url" placeholder="linked in URL"/>
-    <label>Email: </label>
-    <input [(ngModel)]="adie.email" placeholder="email"/>
-    <label>Bio: </label>
-    <input [(ngModel)]="adie.bio" placeholder="Tell us a little about yourself!"/>
-    <button type="submit" (click)="submitForm()">Update</button>
+<div *ngIf="adie">
+  <form class="ui form" action="">
+    <div class="fields">
+        <div class="twelve wide field">
+            <label>Name: </label>
+            <input [(ngModel)]="adie.name" placeholder="name" required/>    
+        </div>
+        <div class="two wide field"></div>
+        <div *ngIf="adie.admin" class="two wide field">
+            <label for="cohort">Cohort</label>
+            <select class="ui fluid dropdown" [(ngModel)]="adie.cohort" required>
+              <option *ngFor="#cohort of cohorts" [value]="cohort">{{cohort}}</option>
+            </select>    
+        </div>    
+    </div>
+    <div class="fields">
+        <div class="seven wide field">
+            <label>Twitter: </label>
+            <input [(ngModel)]="adie.twitter" placeholder="Twitter"/>    
+        </div> 
+        <div class="two wide field"></div>
+        <div class="seven wide field">
+            <label>Email: </label>
+            <input [(ngModel)]="adie.email" placeholder="Email"/>
+        </div>   
+    </div>
+    <div class="field">
+        <label>Linked In: </label>
+        <input [(ngModel)]="adie.linked_in_url" placeholder="Linked In"/>    
+    </div>
+    <div class="field">
+        <label>Capstone URL: </label>
+        <input [(ngModel)]="adie.capstone_url" placeholder="Capstone URL"/>
+    </div>
+    <div class="field">
+        <label>Capstone Description: </label>
+        <textarea rows="3" [(ngModel)]="adie.capstone_description" placeholder="Capstone Description"></textarea>
+    </div>
+    <button class="ui button" type="submit" (click)="submitForm()">Update</button>
   </form>
 </div>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
