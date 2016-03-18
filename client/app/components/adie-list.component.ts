@@ -17,7 +17,8 @@ import { AdieService } from '../services/adie.service';
 })
 
 export class AdieListComponent implements OnInit {
-	errorMessage: string;	
+	errorMessage: string;
+	loading: boolean = true;	
 	public adies: Adie[];
 
 	constructor(private _adieService: AdieService, private _router: Router) {
@@ -30,7 +31,10 @@ export class AdieListComponent implements OnInit {
 	getAdies() {
 		this._adieService.getAdies()
 			.subscribe(
-			adies => this.adies = adies,
+			adies => { 
+				this.loading = false;
+				this.adies = adies; 
+			},
 		  error => this.errorMessage = <any>error);
 	}
 

@@ -34,12 +34,14 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 function CompanyDetailComponent(_companyService, _routeParams) {
                     this._companyService = _companyService;
                     this._routeParams = _routeParams;
+                    this.loading = true;
                 }
                 CompanyDetailComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     var id = +this._routeParams.get('id');
                     this._companyService.getCompany(id)
                         .subscribe(function (response) {
+                        _this.loading = false;
                         _this.company = response.company;
                         _this.employees = response.employees;
                     }, function (error) { return _this.errorMessage = error; });
@@ -47,7 +49,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 CompanyDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'company-detail',
-                        template: "\n\t\t<div *ngIf=\"company\">\n\t\t\t<h2>{{company.name}} details</h2>\n\t    <div><label>id: </label>{{company.id}}</div>\n\t  </div>\n    <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n    <div *ngIf=\"employees\">\n    \t<ul>\n    \t\t<li *ngFor=\"#employee of employees\" >\n\t\t\t\t\tName: {{employee.name}} | Position: {{employee.position}}\n    \t\t</li>\n    \t</ul>\n    </div>\n\t",
+                        template: "\n\t\t<div *ngIf=\"loading\" class=\"ui active inverted dimmer\">\n  \t\t<div class=\"ui text loader\">Loading</div>\n\t\t</div>\n\t\t<div *ngIf=\"company\">\n\t\t\t<h2>{{company.name}} details</h2>\n\t    <div><label>id: </label>{{company.id}}</div>\n\t  </div>\n    <div class=\"error\" *ngIf=\"errorMessage\">{{errorMessage}}</div>\n    <div *ngIf=\"employees\">\n    \t<ul>\n    \t\t<li *ngFor=\"#employee of employees\" >\n\t\t\t\t\tName: {{employee.name}} | Position: {{employee.position}}\n    \t\t</li>\n    \t</ul>\n    </div>\n\t",
                         inputs: ['company', 'employees'],
                         providers: [http_1.HTTP_PROVIDERS, company_service_1.CompanyService],
                         directives: [employee_detail_component_1.EmployeeDetailComponent]

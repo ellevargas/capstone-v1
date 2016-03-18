@@ -1,3 +1,7 @@
+<div *ngIf="loading" class="ui active inverted dimmer">
+  <div class="ui text loader">Loading</div>
+</div>
+
 <div class="ui two link cards">
 	<div class="card" *ngFor="#adie of adies" (click)="gotoDetail(adie)">
 		<div class="content">

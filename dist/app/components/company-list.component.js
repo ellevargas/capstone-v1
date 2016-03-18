@@ -31,6 +31,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 function CompanyListComponent(_companyService, _router) {
                     this._companyService = _companyService;
                     this._router = _router;
+                    this.loading = true;
                 }
                 CompanyListComponent.prototype.ngOnInit = function () {
                     this.getCompanies();
@@ -38,7 +39,10 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 CompanyListComponent.prototype.getCompanies = function () {
                     var _this = this;
                     this._companyService.getCompanies()
-                        .subscribe(function (companies) { return _this.companies = companies; }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (companies) {
+                        _this.loading = false;
+                        _this.companies = companies;
+                    }, function (error) { return _this.errorMessage = error; });
                 };
                 CompanyListComponent.prototype.gotoDetail = function (company) {
                     this._router.navigate(['CompanyDetail', { id: company.id }]);

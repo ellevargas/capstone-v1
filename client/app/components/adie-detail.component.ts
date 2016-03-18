@@ -19,11 +19,13 @@ export class AdieDetailComponent implements OnInit {
 	adie: Adie;
 	errorMessage: string;
 	currentUserId: number;
+	loading: boolean = true;
 
 	constructor(
 		private _adieService: AdieService, 
 		private _routeParams: RouteParams,
-		private _authService: Auth0Service ){}
+		private _authService: Auth0Service ){
+	}
 
 	ngOnInit() {
     let id = +this._routeParams.get('id');
@@ -31,6 +33,7 @@ export class AdieDetailComponent implements OnInit {
     this._adieService.getAdie(id)
       .subscribe(
 				adie => { 
+					this.loading = false;
 					this.adie = adie;
 				},
 				error => this.errorMessage = <any>error);

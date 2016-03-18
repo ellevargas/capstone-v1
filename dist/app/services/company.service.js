@@ -48,12 +48,9 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable', './auth.se
                     }
                     return this.http.get(companiesUrl, { headers: header })
                         .map(function (res) { return res.json().data; })
-                        .do(function (data) { return console.log(data); })
                         .catch(this.handleError);
                 };
                 CompanyService.prototype.handleError = function (error) {
-                    // in a real world app, we may send the error to some remote logging infrastructure
-                    // instead of just logging it to the console
                     console.error(error);
                     return Observable_1.Observable.throw(error.json().error || 'Server error');
                 };

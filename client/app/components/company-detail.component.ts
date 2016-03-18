@@ -11,6 +11,9 @@ import { EmployeeDetailComponent } from './employee-detail.component';
 @Component({
 	selector: 'company-detail',
 	template: `
+		<div *ngIf="loading" class="ui active inverted dimmer">
+  		<div class="ui text loader">Loading</div>
+		</div>
 		<div *ngIf="company">
 			<h2>{{company.name}} details</h2>
 	    <div><label>id: </label>{{company.id}}</div>
@@ -33,6 +36,7 @@ export class CompanyDetailComponent implements OnInit {
 	company: Company;
 	employees: Employee[];
 	errorMessage: string;
+	loading: boolean = true;
 
 	constructor(
 		private _companyService: CompanyService,
@@ -43,6 +47,7 @@ export class CompanyDetailComponent implements OnInit {
     this._companyService.getCompany(id)
       .subscribe(
 			response => {
+				this.loading = false;
 				this.company = response.company;
 				this.employees = response.employees;
 			},

@@ -16,6 +16,7 @@ import { CompanyService } from '../services/company.service';
 
 export class CompanyListComponent implements OnInit {
 	errorMessage: string;
+	loading: boolean = true;
 	public companies: Company[];
 	public selectedCompany: Company;
 
@@ -28,7 +29,10 @@ export class CompanyListComponent implements OnInit {
 	getCompanies() {
 		this._companyService.getCompanies()
 			.subscribe(
-				companies => this.companies = companies,
+				companies => { 
+					this.loading = false;
+					this.companies = companies; 
+				},
 				error => this.errorMessage = <any>error)
 	}
 

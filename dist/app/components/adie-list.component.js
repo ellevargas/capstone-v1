@@ -31,6 +31,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 function AdieListComponent(_adieService, _router) {
                     this._adieService = _adieService;
                     this._router = _router;
+                    this.loading = true;
                 }
                 AdieListComponent.prototype.ngOnInit = function () {
                     this.getAdies();
@@ -38,7 +39,10 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                 AdieListComponent.prototype.getAdies = function () {
                     var _this = this;
                     this._adieService.getAdies()
-                        .subscribe(function (adies) { return _this.adies = adies; }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (adies) {
+                        _this.loading = false;
+                        _this.adies = adies;
+                    }, function (error) { return _this.errorMessage = error; });
                 };
                 AdieListComponent.prototype.gotoDetail = function (adie) {
                     this._router.navigate(['AdieDetail', { id: adie.id }]);

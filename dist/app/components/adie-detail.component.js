@@ -38,6 +38,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                     this._adieService = _adieService;
                     this._routeParams = _routeParams;
                     this._authService = _authService;
+                    this.loading = true;
                 }
                 AdieDetailComponent.prototype.ngOnInit = function () {
                     var _this = this;
@@ -45,6 +46,7 @@ System.register(['angular2/core', 'angular2/http', 'angular2/router', '../servic
                     this.currentUserId = this._authService.getCurrentUserId();
                     this._adieService.getAdie(id)
                         .subscribe(function (adie) {
+                        _this.loading = false;
                         _this.adie = adie;
                     }, function (error) { return _this.errorMessage = error; });
                 };
